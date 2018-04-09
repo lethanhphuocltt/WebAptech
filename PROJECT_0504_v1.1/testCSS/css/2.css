@@ -1,0 +1,23 @@
+
+.top-header{
+    background-color: #171C26;
+}
+
+.top-header .sign-in {
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.top-header .list-inline {
+    padding: 10px 0;
+}
+
+.top-header .list-inline a {
+    text-decoration: none;
+    color: #949494;
+    margin-right: 15px;
+    font-size: 12px;
+}
+.top-header .list-inline a i {
+    margin-right: 5px;
+}
