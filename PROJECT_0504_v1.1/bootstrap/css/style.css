@@ -1230,7 +1230,7 @@ footer .tags{
     color: white;
     background-color: rgba(0, 0, 0, 0);
     background-repeat: no-repeat;
-    background: url(../img/sub-banner.jpg);
+	background-image:url(../../images/sub-banner.jpg);
     background-size: cover;
     background-position: center center;
     width: 100%;

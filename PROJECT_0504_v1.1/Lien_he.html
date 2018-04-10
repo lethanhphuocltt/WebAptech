@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+  <title>Car Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >    
+  <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+</head>
+
+<body>
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-area">
+                        <h2>Contact Us</h2>
+                        <ul class="breadcrumbs">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active">Contact Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub banner end -->
+
+<!-- Contact body start -->
+<div class="contact-body content-area">
+    <div class="container">
+        <div class="contact-box">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Contact with us</h1>
+                <div class="border">
+                    <div class="border-inner"></div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc..</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <div class="contact-itam">
+                        <div class="icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <p>Office Address</p>
+                        <strong>123 Kathal St. Tampa City,</strong>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="contact-itam">
+                        <i class="fa fa-phone"></i>
+                        <p>Phone Number</p>
+                        <strong>+55 417 634 7071</strong>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="contact-itam">
+                        <i class="fa fa-envelope"></i>
+                        <p>Email Address</p>
+                        <strong>info@themevessel.com</strong>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="contact-itam">
+                        <i class="fa fa-fax"></i>
+                        <p>Fax</p>
+                        <strong>+55 417 634 7071</strong>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact form start -->
+            <div class="contact-form">
+                <form id="contact_form" action="https://storage.googleapis.com/themeforest-auto-car/index.html" method="GET" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group fullname">
+                                <input type="text" name="full-name" class="input-text" placeholder="Full Name">
+                            </div>
+                            <div class="form-group enter-email">
+                                <input type="email" name="email" class="input-text" placeholder="Enter email">
+                            </div>
+                            <div class="form-group subject">
+                                <input type="text" name="subject" class="input-text" placeholder="Subject">
+                            </div>
+                            <div class="form-group number">
+                                <input type="text" name="phone" class="input-text" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group message">
+                                <textarea class="input-text" name="message" placeholder="Write message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-20">
+                            <div class="form-group send-btn text-center ">
+                                <button type="submit" class="btn btn-submit">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Contact form end -->
+        </div>
+    </div>
+</div>
+<!-- Contact body end -->
+
+<!-- Google map start -->
+<div class="section">
+    <div class="map">
+        <div id="map" class="contact-map"></div>
+    </div>
+</div>
+<!-- Google map end -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+<script>
+    function LoadMap(propertes) {
+        var defaultLat = 40.7110411;
+        var defaultLng = -74.0110326;
+        var mapOptions = {
+            center: new google.maps.LatLng(defaultLat, defaultLng),
+            zoom: 15,
+            scrollwheel: false,
+            styles: [
+                {
+                    featureType: "administrative",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    featureType: 'poi.business',
+                    stylers: [{visibility: 'off'}]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'labels.icon',
+                    stylers: [{visibility: 'off'}]
+                },
+            ]
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var infoWindow = new google.maps.InfoWindow();
+        var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+        (function (marker) {
+            google.maps.event.addListener(marker, "click", function (e) {
+                infoWindow.setContent("" +
+                        "<div class='map-properties contact-map-content'>" +
+                        "<div class='map-content'>" +
+                        "<p class='address'>20-21 Kathal St. Tampa City, FL</p>" +
+                        "<ul class='map-properties-list'> " +
+                        "<li><i class='fa fa-phone'></i>  +0477 8556 552</li> " +
+                        "<li><i class='fa fa-envelope'></i>  sales@realhouse.com</li> " +
+                        "<li><a href='index.html'><i class='fa fa-globe'></i>  http://www.example.com</li></a> " +
+                        "</ul>" +
+                        "</div>" +
+                        "</div>");
+                infoWindow.open(map, marker);
+            });
+        })(marker);
+    }
+    LoadMap();
+</script>
+</body>
+</html>
