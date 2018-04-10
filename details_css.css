@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* sub banner */
+.sub_banner  {
+	background-image:url(../img/sub-banner.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+	width:100%;
+	height:auto;
+	opacity:1;
+	/* visibility:inherit; */ 
+	text-align:center;
+	color:white
+	}
+.overlay {
+	background-color:rgb(37, 37, 41);
+	opacity:0.9;
+	padding:70px 0;
+	}
+@media (min-width: 992px)
+.col-md-12 {
+	width:100%
+	}	
+.breadcrumb-area  {
+	max-width:620px;
+	margin:0 auto;
+	text-align:center;
+	height:auto;
+	}
+.breadcrumb-area h2 {
+	margin:0 0 20px;
+	font-size:35px;
+	font-weight:700;
+	letter-spacing:1px;
+	}
+.breadcrumb-area ul {
+	list-style: none;
+    margin: 0;
+    padding: 0;
+	}
+.breadcrumb-area .breadcrumbs li {
+	display: inline-block;
+    list-style: none;
+    font-size: 18px;
+	}
+.breadcrumb-area ul li a {
+	color:white;
+	text-decoration:none;
+	}
+.breadcrumb-area .breadcrumbs .active a:hover {
+	color:#FF0;
+	}
+/* car details body */
+
+.car-details-body {
+	padding:100px 0 70px;
+	background-color:#fbfbfb;
+	}
+.details-option-bar {
+	padding: 15px;
+    background-color: white;
+	margin-bottom:30px;
+	}
+.pull_left {
+	float:left;
+	}
+.pull_right {
+	float:right;
+	}
+.car_details {
+	padding: 20px;
+    margin-bottom: 30px;
+	background-color:#fff;
+	}
+.car_details_img {
+	margin-bottom:30px;
+	}
+.amenities_single_block .title {	
+	letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 17px;
+    margin: 0 0 25px;
+    color: #37404d;
+	}
+.amenities-box ul {
+	list-style: none;
+    margin: 0;
+    padding: 0;
+	}	
+.amenities-box ul li {
+	margin-bottom:20px;
+	}
+.amenities-box ul li strong {
+	color:#555;
+	}
+.amenities_single_block1 .title {	
+	letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 17px;
+    margin: 0 0 25px;
+    color: #37404d;
+	}	
+.amenities_single_block1 ul li{
+    list-style: none;
+    padding: 5px 0;
+    color: #787878;
+    line-height: 30px;
+    border-bottom: 1px dotted #DDD;
+    text-align: right;
+	}
+.amenities_single_block1 ul span {
+	font-weight: 600;
+    float: left;
+    color: #474646;
+	}	
+.amenities_single_block1 ul {
+	padding:0;
+	}	
+	
+	
+	
