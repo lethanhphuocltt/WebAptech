@@ -447,33 +447,6 @@ a:focus {
     padding: 100px 0 70px;
 }
 
-.content-area-2 {
-    padding: 100px 0;
-}
-
-.content-area-3 {
-    padding-bottom: 100px;
-}
-
-.content-area-4 {
-    padding-bottom: 50px;
-}
-
-.content-area-5 {
-    padding: 100px 0 50px;
-}
-
-.content-area-6 {
-    padding: 100px 0 80px;
-}
-
-.content-area-7 {
-    padding-bottom: 70px;
-}
-
-.content-area-8 {
-    padding-bottom: 80px;
-}
 
 .car-box:hover {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.10), 0 6px 5px 0 rgba(0, 0, 0, 0.10);
@@ -693,33 +666,6 @@ footer {
     float: left;
 }
 
-.sub-footer form input {
-    width: 80%;
-    height: 40px;
-    padding: 10px 20px;
-    padding-right: 60px;
-    border: 1px solid transparent;
-    border-radius: 0;
-    font-size: 14px;
-    float: left;
-    outline: none;
-}
-
-.sub-footer form .button-small {
-    width: 20%;
-    border-radius: 0;
-    height: 40px;
-    color: #fff !important;
-    padding: 10px 20px;
-    float: left;
-    text-align: center;
-}
-
-.sub-footer form {
-    margin: 27px auto 0;
-    width: 100%;
-    display: inline-block;
-}
 
 .sub-footer .logo-2 {
     width: 100%;
@@ -822,80 +768,6 @@ footer .tags{
     float: left;
 }
 
-.tags a {
-    float: left;
-    margin: 0 7px 7px 0;
-    border: solid 1px #353535;
-    padding: 6px 15px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: #7c7e83;
-    border-radius: 2px;
-    text-decoration: none;
-}
-
-.tags a:hover {
-    background: #7c7e83;
-    color: #cccccc;
-}
-
-.recent-car .media {
-    margin-bottom: 30px;
-}
-
-.recent-car .media .media-left {
-    padding-right: 20px;
-}
-
-.recent-car .media .media-left img {
-    width: 70px;
-    height: 70px;
-}
-
-.recent-car .media .media-body h3 {
-    margin: 0 0 8px;
-    font-size: 15px;
-}
-
-.recent-car .media .media-body h3 a {
-    color: #c5c5c5;
-    text-decoration: none;
-}
-
-.recent-car .media .media-body h3 a:hover {
-    color: #afaeae;
-}
-
-.recent-car .media .media-body span {
-    margin: 0 0 6px;
-    font-size: 13px;
-    display: block;
-}
-
-.recent-car .media .media-body p {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1.4px;
-}
-
-.recent-car .media:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-.copy-right {
-    background: #111111;
-    padding: 20px 0;
-    text-align: center;
-    border-top: solid 1px #232323;
-}
-
-.copy-right p {
-    color: #5a5959;
-    margin: 0;
-}
 @media (max-width: 768px) {
     .main-header .navbar-default .nav > li > a {
         padding: 10px 15px !important;
