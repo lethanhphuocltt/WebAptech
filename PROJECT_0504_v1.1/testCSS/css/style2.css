@@ -1,0 +1,371 @@
+@charset "utf-8";
+/* CSS Document */
+
+.btn-submit:hover{
+    background: #333;
+}
+
+.banner .banner-slider-inner h1 span {
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+.banner-2 .banner-slider-inner h1 span {
+    font-weight: 700;
+    color: #000;
+}
+
+
+
+
+
+.main-title p {
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 30px;
+    color: #808080;
+}
+.we-best-bg-pic .main-title h1 {
+    color: #ddd;
+}
+
+.we-best-bg-pic .main-title p {
+    color: #cccccc;
+}
+    .main-title p {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    .main-title {
+        margin-bottom: 30px;
+    }
+
+    .main-title h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+<!-- -->
+.btn-submit, .btn-submit:focus {
+    
+    padding: 13px 20px 12px;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    /* ...and now for the proper property */
+
+   
+}
+.btn-submit:hover {
+    color: #fff;
+}	
+<!-- -->
+.we-best {
+    text-align: center;
+}
+
+.we-best .content {
+    max-width: 262px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+
+
+
+.we-best .content p {
+    color: #5a5959;
+    font-size: 13px;
+    line-height: 23px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+/** CONTACT DETAILS AREA START **/
+
+
+
+
+form  .btn{
+    outline: none !important;
+}
+
+
+
+.map-properties-btns {
+    display: inline-flex;
+}
+
+.map-properties-btns .button-theme {
+    color: #FFF !important;;
+}
+
+
+
+
+/** BLOG BODY AREA START **/
+
+.blog-box .btn{
+    border-radius: 50px;
+    padding: 8px 33px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/** RECENT COMMENTS AREA START **/
+
+.btn-submit, .btn-submit:focus {
+    background-color:#999;
+    padding: 13px 20px 12px;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    /* ...and now for the proper property */
+    transition: .5s;
+    border-radius: 40px;
+    margin-left:500px;
+}
+
+.btn-submit:hover {
+    color: #fff;
+}
+
+
+<!-- -->
+
+
+bootstrap.min.css:5
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+<!-- -->
+
+
+
+bootstrap.min.css:5
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+Inherited from div.col-lg-3.col-md-3.col-sm-6.col-xs-12.wow.fadeInRight.delay-03s
+Style Attribute {
+    visibility: visible;
+    animation-name: fadeInRight;
+}
+Inherited from div.we-best
+style.css:2046
+.we-best {
+    text-align: center;
+}
+
+Inherited from body
+style.css:32
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #fbfbfb;
+}
+
+<!-- -->
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #fbfbfb;
+}
+bootstrap.min.css:5
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from html
+bootstrap.min.css:5
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+bootstrap.min.css:5
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+Pseudo ::before element
+bootstrap.min.css:5
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+bootstrap.min.css:5
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+<!-- -->
+
+
+ h4 {
+    color: #C9361D;
+}
+
+.we-best .content h4 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+bootstrap.min.css:5
+.h4, h4 {
+    font-size: 18px;
+}
+bootstrap.min.css:5
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+bootstrap.min.css:5
+
+
+bootstrap.min.css:5
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+h4 {
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+Inherited from div.col-lg-3.col-md-3.col-sm-6.col-xs-12.wow.fadeInRight.delay-03s
+Style Attribute {
+    visibility: visible;
+    animation-name: fadeInRight;
+}
+Inherited from div.we-best
+style(1).css:1698
+.we-best {
+    text-align: center;
+}
+Inherited from body
+style(1).css:32
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #fbfbfb;
+}
+bootstrap.min.css:5
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from html
+bootstrap.min.css:5
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+bootstrap.min.css:5
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+bootstrap.min.css:5
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+bootstrap.min.css:5
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+<!-- -->
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.content i {
+background-color:#999;
+	width:55px;
+    height:55px;
+	line-height:55px;
+    font-size:27px;
+    display:inline-block;
+	border-radius:50%;
+	 webkit-box-shadow: rgba(50, 50, 50, 0.11) 0 5px 2px 0;
+    margin-bottom:20px;
+    margin-left:35px;
+}
+<!-- -->
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: auto;
+    font-style: normal;
+    margin-left: 14px;
+}
+.btn-warning 
+{
+	background-color: #999;
+    padding: 13px 20px 12px;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+    border-radius: 40px;
+    margin-left: -14px;
+	}
+	<!-- -->
+	.main-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 50px;

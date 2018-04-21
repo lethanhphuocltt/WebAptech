@@ -86,7 +86,7 @@
 }
 
 .btn-details {
-    background: #ffb400;
+    background: #999;
 }
 
 .btn-details:hover {
@@ -133,10 +133,7 @@
     background: #ffb400;
 }
 
-.change-view-btn {
-    color: #ffb400;
-    border: solid 1px #ffb400;
-}
+
 
 .change-view-btn:hover {
     border: solid 1px #ffb400;
