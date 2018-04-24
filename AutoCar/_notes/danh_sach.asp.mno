@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rcDanhSachXe" value="name:IDCAR;datatype:int,name:PRICE;datatype:float,name:NAMECAR;datatype:varchar,name:IDWARRANTY;datatype:int,name:IDCB;datatype:int,name:IMAGECAR;datatype:date" />
+	<infoitem key="UD_rcHang" value="name:IDCB;datatype:int,name:BRANDS;datatype:varchar" />
+</info>
