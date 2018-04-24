@@ -1,3 +1,60 @@
+<%@LANGUAGE="VBSCRIPT"%>
+<!--#include file="Connections/cnAutoCar.asp" -->
+<%
+Dim rcCarS__MMColParam
+rcCarS__MMColParam = "1"
+If (Request.QueryString("IdCar") <> "") Then 
+  rcCarS__MMColParam = Request.QueryString("IdCar")
+End If
+%>
+<%
+Dim rcCarS
+Dim rcCarS_cmd
+Dim rcCarS_numRows
+
+Set rcCarS_cmd = Server.CreateObject ("ADODB.Command")
+rcCarS_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcCarS_cmd.CommandText = "SELECT * FROM dbo.CAR WHERE IDCAR = ?" 
+rcCarS_cmd.Prepared = true
+rcCarS_cmd.Parameters.Append rcCarS_cmd.CreateParameter("param1", 5, 1, -1, rcCarS__MMColParam) ' adDouble
+
+Set rcCarS = rcCarS_cmd.Execute
+rcCarS_numRows = 0
+%>
+<%
+Dim rcAllCar
+Dim rcAllCar_cmd
+Dim rcAllCar_numRows
+
+Set rcAllCar_cmd = Server.CreateObject ("ADODB.Command")
+rcAllCar_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcAllCar_cmd.CommandText = "SELECT * FROM dbo.CAR" 
+rcAllCar_cmd.Prepared = true
+
+Set rcAllCar = rcAllCar_cmd.Execute
+rcAllCar_numRows = 0
+%>
+<%
+Dim rcCar2__MMColParam
+rcCar2__MMColParam = "1"
+If (Request.QueryString("IdCar2") <> "") Then 
+  rcCar2__MMColParam = Request.QueryString("IdCar2")
+End If
+%>
+<%
+Dim rcCar2
+Dim rcCar2_cmd
+Dim rcCar2_numRows
+
+Set rcCar2_cmd = Server.CreateObject ("ADODB.Command")
+rcCar2_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcCar2_cmd.CommandText = "SELECT * FROM dbo.CAR WHERE IDCAR = ?" 
+rcCar2_cmd.Prepared = true
+rcCar2_cmd.Parameters.Append rcCar2_cmd.CreateParameter("param1", 5, 1, -1, rcCar2__MMColParam) ' adDouble
+
+Set rcCar2 = rcCar2_cmd.Execute
+rcCar2_numRows = 0
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -7,42 +64,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
-    <!-- External CSS libraries -->
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-submenu.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/slider.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/fonts/linearicons/style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">
-
     <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Custom stylesheet -->
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
     <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
 
-    <!-- Favicon icon -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" >
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5shiv.min.js"></script>
-    <script type="text/javascript" src="js/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
-
+<!--header top -->
+<header class="top-header hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                <div class="list-inline">
+                    <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 3456789</a>
+                    <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>AUTOWORLD@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                <ul class="social-list clearfix pull-right">
+                    <li>
+                        <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
 <!-- Sub banner start -->
 <div class="sub-banner">
     <div class="overlay">
@@ -53,7 +112,7 @@
                         <h2>Car Comparison</h2>
                         <ul class="breadcrumbs">
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">Car Comparison</li>
+                            <li class="active">>&nbsp;Car Comparison</li>
                         </ul>
                     </div>
                 </div>
@@ -74,55 +133,70 @@
             </div>
             <div class="col-lg-8 col-md-8">
                 <div class="single-block Compare-search">
-                    <form method="GET">
+                    <form method="get" action="So_sanh.asp">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="form-group search-fields">
-                                    <select class="selectpicker" multiple name="select">
-                                        <option>Select</option>
-                                        <option>Audi</option>
-                                        <option>BMD</option>
-                                        <option>Honda</option>
-                                        <option>Nissan</option>
-                                        <option>Lombarghini</option>
-                                        <option>Toyoto</option>
+                                <div class="form-group search-fields" >
+                                    <select class="selectpicker" name="IdCar">
+                                      <%
+										While (NOT rcAllCar.EOF)
+										%>
+										<option value="<%=(rcAllCar.Fields.Item("IDCAR").Value)%>" <%If (Not isNull((rcCarS.Fields.Item("IDCAR").Value))) Then If (CStr(rcAllCar.Fields.Item("IDCAR").Value) = CStr((rcCarS.Fields.Item("IDCAR").Value))) Then Response.Write("selected=""selected""") : Response.Write("")%> ><%=(rcAllCar.Fields.Item("NAMECAR").Value)%></option>
+										<%
+										  rcAllCar.MoveNext()
+										Wend
+										If (rcAllCar.CursorType > 0) Then
+										  rcAllCar.MoveFirst
+										Else
+										  rcAllCar.Requery
+										End If
+										%>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="form-group search-fields">
-                                    <select class="selectpicker" multiple name="bmw">
-                                        <option>BMW</option>
-                                        <option>Honda</option>
-                                        <option>Nissan</option>
-                                        <option>Nissan</option>
-                                        <option>Lombarghini</option>
-                                        <option>Toyoto</option>
-                                    </select>
+                                  <select class="selectpicker" name="IdCar2">
+                                    <%
+									While (NOT rcAllCar.EOF)
+									%>
+									<option value="<%=(rcAllCar.Fields.Item("IDCAR").Value)%>" <%If (Not isNull((rcCar2.Fields.Item("IDCAR").Value))) Then If (CStr(rcAllCar.Fields.Item("IDCAR").Value) = CStr((rcCar2.Fields.Item("IDCAR").Value))) Then Response.Write("selected=""selected""") : Response.Write("")%> ><%=(rcAllCar.Fields.Item("NAMECAR").Value)%></option>
+									<%
+									  rcAllCar.MoveNext()
+									Wend
+									If (rcAllCar.CursorType > 0) Then
+									  rcAllCar.MoveFirst
+									Else
+									  rcAllCar.Requery
+									End If
+									%>
+                                  </select>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-submit btn-block">Send Message</button>
-                                </div>
-                            </div>
-                        </div>
+
+                                    <button type="submit" class="btn btn-submit btn-block">Compare</button>
+
+              </div>
+          </div>
+      </div>
                     </form>
-                </div>
-            </div>
+  </div>
+</div>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="thumbnail Compare-car">
                     <div class="car-box-thumbnail">
-                        <img src="images/grid/car-1.jpg" alt="car-1" class="img-responsive">
+                        <img src="images/grid/<%=(rcCarS.Fields.Item("IMAGECAR").Value)%>" alt="car-1" class="img-responsive">
                     </div>
                     <!-- detail -->
                     <div class="caption detail clearfix">
                         <div class="pull-left">
-                            <h5>Hyundai Santa</h5>
-                            <h6>$8000</h6>
+                            <h5><%=(rcCarS.Fields.Item("NAMECAR").Value)%></h5>
+                            <h6>$<%=(rcCarS.Fields.Item("PRICE").Value)%></h6>
                         </div>
                         <div class="pull-right">
                             <p>
@@ -139,13 +213,13 @@
             <div class="col-md-6 col-sm-6">
                 <div class="thumbnail Compare-car">
                     <div class="car-box-thumbnail">
-                        <img src="images/grid/car-2.jpg" alt="car-2" class="img-responsive">
+                        <img src="images/grid/<%=(rcCar2.Fields.Item("IMAGECAR").Value)%>" alt="car-2" class="img-responsive">
                     </div>
                     <!-- detail -->
                     <div class="caption detail clearfix">
                         <div class="pull-left">
-                            <h5>Fiat Punto Red</h5>
-                            <h6>$8000</h6>
+                            <h5><%=(rcCar2.Fields.Item("NAMECAR").Value)%></h5>
+                            <h6>$<%=(rcCar2.Fields.Item("PRICE").Value)%></h6>
                         </div>
                         <div class="pull-right">
                             <p>
@@ -187,228 +261,48 @@
                                                 <table>
                                                     <tbody>
                                                     <tr>
-                                                        <td> Engine Type </td>
-                                                        <td> 3.0TFSI</td>
-                                                        <td> 3.0TFSI</td>
+                                                        <td> Fuel Type: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("FUELTYPE").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("FUELTYPE").Value)%></td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Mileage </td>
-                                                        <td> 32,100 kmpl</td>
-                                                        <td> 22,100 kmpl</td>
+                                                        <td> Stock: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("STOCK").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("STOCK").Value)%></td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Fuel Type </td>
-                                                        <td> Petrol</td>
-                                                        <td> Diesel</td>
+                                                        <td> Gasoline: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("GASOLINE").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("GASOLINE").Value)%></td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Price </td>
-                                                        <td> $105,000</td>
-                                                        <td> $47,000</td>
+                                                        <td> Engine: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("ENGINE").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("ENGINE").Value)%></td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Vehicle Type </td>
-                                                        <td> Coupe</td>
-                                                        <td> SUV</td>
+                                                        <td> Transmission: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("TRANSMISSION").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("TRANSMISSION").Value)%></td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Transmission </td>
-                                                        <td> Manual</td>
-                                                        <td> Automatic</td>
+                                                        <td> VIN: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("VIN").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("VIN").Value)%></td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Colour </td>
-                                                        <td> Blue</td>
-                                                        <td> Gray </td>
+                                                        <td> Mileage: </td>
+                                                        <td> <%=(rcCarS.Fields.Item("MILEAGE").Value)%></td>
+                                                        <td> <%=(rcCar2.Fields.Item("MILEAGE").Value)%> </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td> Seats </td>
-                                                        <td> 5 Seats </td>
-                                                        <td> 2 Seats </td>
-                                                    </tr>
-                                                    </tbody>
+                                                    
+                                                  </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="heading2">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Engine
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
-                                        <div class="panel-body panel-body-2 pd-0">
-                                            <div class="compare-table">
-                                                <table>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td> Engine size </td>
-                                                        <td> 3.0 L</td>
-                                                        <td> 12.0 L</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Available Colors </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Seating Capacity </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Maximum Power </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Valves Per Cylinder </td>
-                                                        <td> 14 </td>
-                                                        <td> 18 </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Turbo Charger </td>
-                                                        <td> <i class="fa fa-times"></i> </td>
-                                                        <td> <i class="fa fa-check"></i> </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="heading3">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Extra feature
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
-                                        <div class="panel-body panel-body-2 pd-0">
-                                            <div class="compare-table">
-                                                <table>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td> Air Conditioning System </td>
-                                                        <td> Manual Dial Cooler</td>
-                                                        <td> Manual</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Cruise Control </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Front Parking Sensors </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Power Steering </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Rear Parking Sensors </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Roof Rack </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Power Windows </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Push Start Button </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Sunroof </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Wheel Metal Type </td>
-                                                        <td> Alloy</td>
-                                                        <td> Aluminum</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="heading4">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Safety & Security
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-                                        <div class="panel-body panel-body-2 pd-0">
-                                            <div class="compare-table">
-                                                <table>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td> ABS </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Driver's Airbag </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Front Passenger's Airbag </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Immobilizer </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Electronic Brake Distribution </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Electronic Door Locks </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Security Alarm </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Side Airbag </td>
-                                                        <td> <i class="fa fa-times"></i></td>
-                                                        <td> <i class="fa fa-check"></i></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -522,8 +416,115 @@
 
 <!-- Custom javascript -->
 <script src="bootstrap/js/app.js"></script>
+<!-- -->
+    <footer class="clearfix">
+        <div class="container">
+            <!-- Sub footer-->
+            <div class="sub-footer">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="logo-2">
+                            <a href="index.html">
+                                <img src="picture/footer-logo.png" alt="footer-logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+<div class="container">
+        <div class="main-title">
+            <h1>We Are The Best</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc..</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
+                <div class="content">
+                    <i class="flaticon-security"> </i>
+                  
+                    <h4>Highly  Secured</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
+                <div class="content">
+                    <i class="flaticon-handshake"></i>
+                    <h4>Trusted Agents</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
+                <div class="content">
+                    <i class="flaticon-dollar-sticker"></i>
+                    <h4>Get an Offer</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
+                <div class="content">
+                    <i class="flaticon-call-center-agent"></i>
+                    <h4>24/7 CUSTOMER SUPPORT</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                </div>
+            </div>
+        </div> 
+        <a href="#" class="btn btn-submit">Read More</a>
+    </div>
+<script src="./Auto Car - Car Dealer HTML Template_files/ie10-viewport-bug-workaround.js.tải xuống"></script>
 
+<!-- Custom javascript -->
+<script src="./Auto Car - Car Dealer HTML Template_files/app.js.tải xuống"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100829780-2', 'auto');
+    ga('send', 'pageview');
+	</script>
+	<!-- -->
+                <div class="row">
+                	<div class="footerinfo">
+                    	<p class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12" style="text-align:center; font-size:20px;">
+                        	<strong>
+                        		
+                            </strong>
+                        </p>
+                        <div>
+                            <ul class="personal-info">
+                                <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+                                    <i class="fa fa-map-marker"></i>
+                                    Address: 20/F Green Road, Dhanmondi, Dhaka
+                                </li>
+                                <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+                                    <i class="fa fa-envelope"></i>
+                                    Email:<a href="mailto:autoworld@gmail.com">autoworld@gmail.com</a>
+                                </li>
+                                <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+                                    <i class="fa fa-phone"></i>
+                                    Phone: <a href="tel:0983 456 789">0983 456 789</a>
+                                </li>
+                            </ul>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 </body>
 
 <!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-comparison.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:27 GMT -->
 </html>
+<%
+rcCarS.Close()
+Set rcCarS = Nothing
+%>
+<%
+rcAllCar.Close()
+Set rcAllCar = Nothing
+%>
+<%
+rcCar2.Close()
+Set rcCar2 = Nothing
+%>
