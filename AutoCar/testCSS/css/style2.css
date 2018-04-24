@@ -369,3 +369,30 @@ background-color:#999;
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 50px;
+	}
+	<!-- -->
+	.top-header {
+    background-color: #171C26;
+}
+	.top-header .list-inline a {
+    text-decoration: none;
+    color: #949494;
+    margin-right: 15px;
+    font-size: 12px;
+}
+.social-list a {
+    text-align: center;
+    display: inline-block;
+    color: #949494;
+}
+
+footer {
+    width: 100%;
+    background: #111;
+    color: #7c7e83;
+    padding-bottom: 20px;
+}
+.strong {
+    color: #337ab7;
+    text-decoration: none;
+}
