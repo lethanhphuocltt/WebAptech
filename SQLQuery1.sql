@@ -16,6 +16,7 @@ CREATE TABLE WARRANTY
 	TIMEWARRANTY VARCHAR(30),
 	SCHEMES NVARCHAR(200)
 )
+DROP TABLE car
 --
 CREATE TABLE CAR 
 (
@@ -31,7 +32,8 @@ CREATE TABLE CAR
 	VIN VARCHAR(30),
 	MILEAGE VARCHAR(30),
 	IDMAKE INT FOREIGN KEY REFERENCES MAKE(IDMAKE),
-	IMAGECAR VARCHAR(50)
+	IMAGECAR VARCHAR(50),
+	YEARMAKE VARCHAR(5),
 )
 --
 CREATE TABLE BANK
@@ -68,20 +70,22 @@ INSERT INTO dbo.WARRANTY VALUES (9945,N'ENGINE 15 MOUNT,WHEEL 2 YEAR,NANO 2 YEAR
 INSERT INTO dbo.WARRANTY VALUES (7991,N'ENGINE 20 MONTH,WHEEL 4 YEAR,NANO 2 YEAR')
 INSERT INTO dbo.WARRANTY VALUES (9794,N'ENGINE 24 MONTH,WHEEL 5 YEAR,NANO 3 YEAR')
 --
+
 INSERT INTO dbo.CAR
 VALUES  ( 
           '***CARFAX ONE OWNER***, **MOONROOF / SUNROOF, **NAVIGATION / GPS, **NO ACCIDENTS - CLEAN HISTORY, **MAZDA CERTIFIED, **LEATHER INTERIOR, **HEATED SEATS, **' , -- NOTE - varchar(300)
           29500 , -- PRICE - float
-          '2016 Jeep Wrangler Unlimited Sport' , -- NAMECAR - varchar(30)
+          'Jeep Wrangler Unlimited Sport' , -- NAMECAR - varchar(30)
           'Gasoline' , -- FUELTYPE - varchar(30)
           'MP1218' , -- STOCK - varchar(30)
           'Automatic' , -- GASOLINE - varchar(30)
           '3.6l v6 24v vvt' , -- ENGINE - varchar(30)
           '5-Speed Automatic' , -- TRANSMISSION - varchar(30)
-          '1C4HJWDGXGL283445' , -- VIN - varchar(30)
+          '1C4HJWD' , -- VIN - varchar(30)
           '41,730' , -- MILEAGE - varchar(30)
-          6 , -- IDMAKE - int
-          'Jeep_1.jpg'  -- IMAGECAR - varchar(50)
+          3 , -- IDMAKE - int
+          'car-1.jpg',  -- IMAGECAR - varchar(50)
+		  '2016'
         )
 
 --

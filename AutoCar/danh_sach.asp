@@ -1,30 +1,30 @@
 <%@LANGUAGE="VBSCRIPT"%>
 <!--#include file="Connections/cnAutoCar.asp" -->
 <%
-Dim rcDanhSachXe
-Dim rcDanhSachXe_cmd
-Dim rcDanhSachXe_numRows
+Dim rcMake
+Dim rcMake_cmd
+Dim rcMake_numRows
 
-Set rcDanhSachXe_cmd = Server.CreateObject ("ADODB.Command")
-rcDanhSachXe_cmd.ActiveConnection = MM_cnAutoCar_STRING
-rcDanhSachXe_cmd.CommandText = "SELECT * FROM dbo.CAR" 
-rcDanhSachXe_cmd.Prepared = true
+Set rcMake_cmd = Server.CreateObject ("ADODB.Command")
+rcMake_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcMake_cmd.CommandText = "SELECT * FROM dbo.MAKE" 
+rcMake_cmd.Prepared = true
 
-Set rcDanhSachXe = rcDanhSachXe_cmd.Execute
-rcDanhSachXe_numRows = 0
+Set rcMake = rcMake_cmd.Execute
+rcMake_numRows = 0
 %>
 <%
-Dim rcHang
-Dim rcHang_cmd
-Dim rcHang_numRows
+Dim rcCar
+Dim rcCar_cmd
+Dim rcCar_numRows
 
-Set rcHang_cmd = Server.CreateObject ("ADODB.Command")
-rcHang_cmd.ActiveConnection = MM_cnAutoCar_STRING
-rcHang_cmd.CommandText = "SELECT * FROM dbo.CARBARRANDS" 
-rcHang_cmd.Prepared = true
+Set rcCar_cmd = Server.CreateObject ("ADODB.Command")
+rcCar_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcCar_cmd.CommandText = "SELECT * FROM dbo.CAR" 
+rcCar_cmd.Prepared = true
 
-Set rcHang = rcHang_cmd.Execute
-rcHang_numRows = 0
+Set rcCar = rcCar_cmd.Execute
+rcCar_numRows = 0
 %>
 <%
 Dim Repeat1__numRows
@@ -32,7 +32,7 @@ Dim Repeat1__index
 
 Repeat1__numRows = -1
 Repeat1__index = 0
-rcDanhSachXe_numRows = rcDanhSachXe_numRows + Repeat1__numRows
+rcCar_numRows = rcCar_numRows + Repeat1__numRows
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +40,6 @@ rcDanhSachXe_numRows = rcDanhSachXe_numRows + Repeat1__numRows
     <title>Auto Car - Car Dealer HTML Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
@@ -50,7 +49,6 @@ rcDanhSachXe_numRows = rcDanhSachXe_numRows + Repeat1__numRows
 
     <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
-    <link rel="stylesheet" type="text/css" href="testCSS/css/style2.css" />
 
 </head>
 
@@ -65,7 +63,7 @@ rcDanhSachXe_numRows = rcDanhSachXe_numRows + Repeat1__numRows
                         <h2>Car Grid Fullwidth</h2>
                         <ul class="breadcrumbs">
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">Car Grid Fullwidth</li>
+                            <li class="active">>&nbsp;Car Grid Fullwidth</li>
                         </ul>
                     </div>
                 </div>
@@ -74,59 +72,7 @@ rcDanhSachXe_numRows = rcDanhSachXe_numRows + Repeat1__numRows
     </div>
 </div>
 <!-- Sub banner end -->
-<!-- -->
-<div class="container">
-        <div class="main-title">
-            <h1>We Are The Best</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc..</p>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
-                <div class="content">
-                    <i class="flaticon-security"> </i>
-                  
-                    <h4>Highly  Secured</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
-                <div class="content">
-                    <i class="flaticon-handshake"></i>
-                    <h4>Trusted Agents</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
-                <div class="content">
-                    <i class="flaticon-dollar-sticker"></i>
-                    <h4>Get an Offer</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
-                <div class="content">
-                    <i class="flaticon-call-center-agent"></i>
-                    <h4>24/7 CUSTOMER SUPPORT</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
-                </div>
-            </div>
-        </div> 
-        <a href="#" class="btn btn-submit">Read More</a>
-</div>
-<script src="./Auto Car - Car Dealer HTML Template_files/ie10-viewport-bug-workaround.js.tải xuống"></script>
 
-<!-- Custom javascript -->
-<script src="./Auto Car - Car Dealer HTML Template_files/app.js.tải xuống"></script>
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-100829780-2', 'auto');
-    ga('send', 'pageview');
-	</script>
-	<!-- -->
 <!-- Car grid start-->
 <div class="car-grid content-area">
     <div class="container">
@@ -146,29 +92,24 @@ rcDanhSachXe_numRows = rcDanhSachXe_numRows + Repeat1__numRows
                         <div class="col-lg-6 col-md-7 col-sm-7 col-xs-10 cod-pad">
                             <div class="sorting-options">
                               <select class="sorting">
+                              	<option value="All" ></option>
                                 <%
-While (NOT rcHang.EOF)
-%>
-                                <option value="<%=(rcHang.Fields.Item("IDCB").Value)%>"><%=(rcHang.Fields.Item("BRANDS").Value)%></option>
-                                <%
-  rcHang.MoveNext()
-Wend
-If (rcHang.CursorType > 0) Then
-  rcHang.MoveFirst
-Else
-  rcHang.Requery
-End If
-%>
-                                  
+									While (NOT rcMake.EOF)
+									%>
+									<option value="<%=(rcMake.Fields.Item("IDMAKE").Value)%>"><%=(rcMake.Fields.Item("BRANDS").Value)%>
+                                    </option>
+																	<%
+									  rcMake.MoveNext()
+									Wend
+									If (rcMake.CursorType > 0) Then
+									  rcMake.MoveFirst
+									Else
+									  rcMake.Requery
+									End If
+									%>
                               </select>
-                              <select class="sorting">
-                                <option>nhan hieu</option>
-                                    <option>nhan hieu</option>
-                                    <option>nhan hieu</option>
-                                    <option>nhan hieu</option>
-                                </select>                                
-                                <a href="car-list-3.html" class="change-view-btn"><i class="fa fa-th-list"></i></a>
-                                <a href="car-grid-3.html" class="change-view-btn active-view-btn"><i class="fa fa-th-large"></i></a>
+                                                             
+                                
                             </div>
                         </div>
                     </div>
@@ -178,56 +119,78 @@ End If
                 <!-- Car grid start -->
                 <div class="row">
                   <% 
-While ((Repeat1__numRows <> 0) AND (NOT rcDanhSachXe.EOF)) 
-%>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <!-- Car box start-->
-    <div class="thumbnail car-box clearfix">
-      <div class="car-box-thumbnail">
-        <img src="images/grid/<%=(rcDanhSachXe.Fields.Item("IMAGECAR").Value)%>" alt="car-2">
-        </div>
-      
-      <!-- detail -->
-      <div class="caption detail">
-        <!-- Header -->
-        <header class="clearfix">
-          <h5 class="title">
-            <a href="car-details.html"><%=(rcDanhSachXe.Fields.Item("NAMECAR").Value)%></a>
-            </h5>
-          
-          </header>
-        <!-- paragraph -->
-        <p>thong tin̉</p>
-        <!-- Facilities List -->
-        <div class="facilities-area">
-          <ul class="facilities-list clearfix">
-            <li>
-              <i class="flaticon-gasoline-pump"></i>
-              <span>Gasoline</span>
-              </li>
-            <li>
-              <i class="flaticon-automatic-flash-symbol"></i>
-              <span>Automatic</span>
-              </li>
-            
-            
-            <li>
-              <i class="flaticon-transport"></i>
-              <span>5 Gears</span>
-              </li>
-            
-            </ul>
-          </div>
-        </div>
-      </div>
-    <!-- Car box end-->
-  </div>
-  <% 
-  Repeat1__index=Repeat1__index+1
-  Repeat1__numRows=Repeat1__numRows-1
-  rcDanhSachXe.MoveNext()
-Wend
-%>
+					While ((Repeat1__numRows <> 0) AND (NOT rcCar.EOF)) 
+					%>
+					  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+						<!-- Car box start-->
+						<div class="thumbnail car-box clearfix">
+						  <div class="car-box-thumbnail">
+							<img src="images/grid/<%=(rcCar.Fields.Item("IMAGECAR").Value)%>" alt="car-2">
+							<div class="listing-price">
+							  <span class="del"><del>$<%=(rcCar.Fields.Item("PRICE").Value)%></del></span>
+							  </div>
+							</div>
+						  
+						  <!-- detail -->
+						  <div class="caption detail">
+							<!-- Header -->
+							<header class="clearfix">
+							  <h5 class="title">
+								<a href="chi_tiet.asp?IdCar=<%=(rcCar.Fields.Item("IDCAR").Value)%>"><%=(rcCar.Fields.Item("NAMECAR").Value)%></a>
+								</h5>
+							  <ul class="custom-list">
+								<li>
+								  <a href="#">New Car</a> /
+								  </li>
+								<li>
+								  <a href="#">Automatic</a> /
+								  </li>
+								<li>
+								  <a href="#">Sports</a>
+								  </li>
+								</ul>
+							  </header>
+							<!-- paragraph -->
+							<p><%=(rcCar.Fields.Item("NOTE").Value)%></p>
+							<!-- Facilities List -->
+							<div class="facilities-area">
+							  <ul class="facilities-list clearfix">
+								<li>
+								  <i class="flaticon-gasoline-pump"></i>
+								  <span><%=(rcCar.Fields.Item("FUELTYPE").Value)%></span>
+								  </li>
+								<li>
+								  <i class="flaticon-automatic-flash-symbol"></i>
+								  <span><%=(rcCar.Fields.Item("GASOLINE").Value)%></span>
+								  </li>
+								<li>
+								  <i class="flaticon-road-with-broken-line"></i>
+								  <span><%=(rcCar.Fields.Item("MILEAGE").Value)%></span>
+								  </li>
+								<li>
+								  <i class="flaticon-racing-flag"></i>
+								  <span>Chen` VIN</span>
+								  </li>
+								<li>
+								  <i class="flaticon-transport"></i>
+								  <span><%=(rcCar.Fields.Item("ENGINE").Value)%></span>
+								  </li>
+								<li>
+								  <i class="flaticon-time"></i>
+								  <span><%=(rcCar.Fields.Item("YEARMAKE").Value)%></span>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+						  </div>
+						<!-- Car box end-->
+					  </div>
+					  <% 
+					  Repeat1__index=Repeat1__index+1
+					  Repeat1__numRows=Repeat1__numRows-1
+					  rcCar.MoveNext()
+					Wend
+					%>
                 </div>
                 <!-- Car grid end-->
 
@@ -320,16 +283,13 @@ Wend
         </div>
     </div>
 </div>
-<!--footer -->
-
-
 </body>
 </html>
 <%
-rcDanhSachXe.Close()
-Set rcDanhSachXe = Nothing
+rcMake.Close()
+Set rcMake = Nothing
 %>
 <%
-rcHang.Close()
-Set rcHang = Nothing
+rcCar.Close()
+Set rcCar = Nothing
 %>
