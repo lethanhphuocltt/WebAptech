@@ -1,0 +1,1 @@
+Driver={SQL Server};Sever=DESKTOP-QURD06N\SQLEXPRESS;Database=AUTOWORD;UID=sa;password=123456
