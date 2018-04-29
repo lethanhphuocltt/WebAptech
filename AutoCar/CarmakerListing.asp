@@ -1,17 +1,17 @@
 <%@LANGUAGE="VBSCRIPT"%>
 <!--#include file="Connections/cnAutoCar.asp" -->
 <%
-Dim rcAllBank
-Dim rcAllBank_cmd
-Dim rcAllBank_numRows
+Dim rcMaker
+Dim rcMaker_cmd
+Dim rcMaker_numRows
 
-Set rcAllBank_cmd = Server.CreateObject ("ADODB.Command")
-rcAllBank_cmd.ActiveConnection = MM_cnAutoCar_STRING
-rcAllBank_cmd.CommandText = "SELECT * FROM dbo.BANK" 
-rcAllBank_cmd.Prepared = true
+Set rcMaker_cmd = Server.CreateObject ("ADODB.Command")
+rcMaker_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcMaker_cmd.CommandText = "SELECT * FROM dbo.MAKE" 
+rcMaker_cmd.Prepared = true
 
-Set rcAllBank = rcAllBank_cmd.Execute
-rcAllBank_numRows = 0
+Set rcMaker = rcMaker_cmd.Execute
+rcMaker_numRows = 0
 %>
 <%
 Dim Repeat1__numRows
@@ -19,14 +19,14 @@ Dim Repeat1__index
 
 Repeat1__numRows = -1
 Repeat1__index = 0
-rcAllBank_numRows = rcAllBank_numRows + Repeat1__numRows
+rcMaker_numRows = rcMaker_numRows + Repeat1__numRows
 %>
 <!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:15 GMT -->
 <head>
-    <title>DANH SÁCH NGÂN HÀNG</title>
+    <title>Auto Car - Carmaker Listing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -44,24 +44,82 @@ rcAllBank_numRows = rcAllBank_numRows + Repeat1__numRows
 <body>
 <!--header top -->
 <header class="top-header hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                <div class="list-inline">
-                    <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 3456789</a>
-                    <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>AUTOWORLD@gmail.com</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                    <div class="list-inline">
+                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
+                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                    <ul class="social-list clearfix pull-right">
+                        <li>
+                            <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                <ul class="social-list clearfix pull-right">
-                    <li>
-                        <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </div>
-</header>
+    </header>
+<!-- Main header start -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navigation"> <!--hình thức toggle--> <!--data cua toggle-->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="Home.html" class="logo">
+                        <img src="images/logos/green-light-logo.png" alt="logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" id="app-navigation">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="Home.html" >
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="CarListing.asp" >
+                                Car Listing
+                            </a>
+                            
+                        </li>
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Pages<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="Compare.asp" tabindex="0">Compare</a>
+                                </li>
+                                <li>
+                                    <a href="BankListing.asp" tabindex="1">Bank Listing</a>
+                                </li>
+                                <li>
+                                    <a href="CarmakerListing.asp" tabindex="1">Carmakers Listing</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Contact<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="About.html">About Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>                
+                </div>
+            </nav>
+        </div>
+    </header>
 <!-- Sub banner start -->
 <div class="sub-banner">
     <div class="overlay">
@@ -69,10 +127,10 @@ rcAllBank_numRows = rcAllBank_numRows + Repeat1__numRows
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-area">
-                        <h2>Bank Listing</h2>
+                        <h2>Carmaker Listing</h2>
                         <ul class="breadcrumbs">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Bank Listing</li>
+                            <li><a href="Home.html">Home</a></li>
+                            <li class="active">Carmaker Listing</li>
                         </ul>
                     </div>
                 </div>
@@ -95,23 +153,23 @@ rcAllBank_numRows = rcAllBank_numRows + Repeat1__numRows
                                 <span class="heading-icon">
                                     <i class="fa fa-th-list"></i>
                                 </span>
-                                <span class="hidden-xs">Bank Listing</span>
-                         </h4>
-                      </div>                        
+                                <span class="hidden-xs">Car Manufacturer Listing</span>
+                            </h4>
+                        </div>                        
                    </div>
                </div>
                <!-- Block heading end -->
-              <div class="clearfix"></div>
+               <div class="clearfix"></div>
 
                 <!-- Car list start -->
                 <% 
-While ((Repeat1__numRows <> 0) AND (NOT rcAllBank.EOF)) 
+While ((Repeat1__numRows <> 0) AND (NOT rcMaker.EOF)) 
 %>
   <div class="car-list-box clearfix wow fadeInUp">
     <div class=" row-table row-flush">
       <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
         <div class="car-box-thumbnail">
-          <img src="images/logobanks/<%=(rcAllBank.Fields.Item("IMAGEBANK").Value)%>" class="img-responsive">                              
+          <img src="images/logoMaker/<%=(rcMaker.Fields.Item("IMAGEMAKE").Value)%>" class="img-responsive">                              
           </div>
         </div>
       <!-- Detail Body -->
@@ -120,13 +178,13 @@ While ((Repeat1__numRows <> 0) AND (NOT rcAllBank.EOF))
         <header>
           <!-- Title -->
           <h3 class="title">
-            <a href="chitiet_nganhang.asp?IdBank=<%=(rcAllBank.Fields.Item("IDBANK").Value)%>"><%=(rcAllBank.Fields.Item("NAMEBANK").Value)%></a>
+            <a href="#"><%=(rcMaker.Fields.Item("BRANDS").Value)%></a>
             </h3>
           </header>
         <div class="clearfix"></div>
         <!-- paragraph -->
         <p>
-          <%=(rcAllBank.Fields.Item("SUMMARY").Value)%> 
+          <%=(rcMaker.Fields.Item("NOTE").Value)%>
           </p>
         <!-- Facilities List -->
         </div>
@@ -135,7 +193,7 @@ While ((Repeat1__numRows <> 0) AND (NOT rcAllBank.EOF))
   <% 
   Repeat1__index=Repeat1__index+1
   Repeat1__numRows=Repeat1__numRows-1
-  rcAllBank.MoveNext()
+  rcMaker.MoveNext()
 Wend
 %>
 <!-- Car list end-->
@@ -159,7 +217,7 @@ Wend
                             </a>
                         </li>
                     </ul>
-              </nav>
+                </nav>
                 <!-- Page navigation End-->
             </div>
 
@@ -294,12 +352,11 @@ Wend
           </div>
 
       </div>
-</footer>
+    </footer>
 </body>
 
-<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:18 GMT -->
 </html>
 <%
-rcAllBank.Close()
-Set rcAllBank = Nothing
+rcMaker.Close()
+Set rcMaker = Nothing
 %>

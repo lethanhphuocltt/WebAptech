@@ -53,7 +53,7 @@ rcConditionsSL_numRows = rcConditionsSL_numRows + Repeat1__numRows
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>DANH SÁCH</title>
+    <title>Auto Car - Bank Details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -69,26 +69,83 @@ rcConditionsSL_numRows = rcConditionsSL_numRows + Repeat1__numRows
 </head>
 
 <body>
-<!--header top -->
 <header class="top-header hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                <div class="list-inline">
-                    <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 3456789</a>
-                    <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>AUTOWORLD@gmail.com</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                    <div class="list-inline">
+                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
+                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                    <ul class="social-list clearfix pull-right">
+                        <li>
+                            <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                <ul class="social-list clearfix pull-right">
-                    <li>
-                        <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </div>
-</header>
+    </header>
+<!-- Main header start -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navigation"> <!--hình thức toggle--> <!--data cua toggle-->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="Home.html" class="logo">
+                        <img src="images/logos/green-light-logo.png" alt="logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" id="app-navigation">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="Home.html" >
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="CarListing.asp" >
+                                Car Listing
+                            </a>
+                            
+                        </li>
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Pages<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="Compare.asp" tabindex="0">Compare</a>
+                                </li>
+                                <li>
+                                    <a href="BankListing.asp" tabindex="1">Bank Listing</a>
+                                </li>
+                                <li>
+                                    <a href="CarmakerListing.asp" tabindex="1">Carmakers Listing</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Contact<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="About.html">About Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>                
+                </div>
+            </nav>
+        </div>
+    </header>
 <!-- Sub banner start -->
 <div class="sub-banner">
     <div class="overlay">
@@ -96,10 +153,10 @@ rcConditionsSL_numRows = rcConditionsSL_numRows + Repeat1__numRows
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-area">
-                        <h2>Car Grid Fullwidth</h2>
+                        <h2>Bank Details</h2>
                         <ul class="breadcrumbs">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Car Grid Fullwidth</li>
+                            <li><a href="Home.html">Home</a></li>
+                            <li class="active">Bank Details</li>
                         </ul>
                     </div>
                 </div>
@@ -203,17 +260,14 @@ month.oninput = function() {
 }
 </script>
 <!--footer -->
-    <footer class="clearfix">
+     <footer class="clearfix">
         <div class="container">
-          <ul class="personal-info">
-            
-          </ul>
             <!-- Sub footer-->
             <div class="sub-footer">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="logo-2">
-                            <a href="index.html">
+                            <a href="Home.html">
                                 <img src="picture/footer-logo.png" alt="footer-logo">
                             </a>
                         </div>
@@ -285,7 +339,10 @@ month.oninput = function() {
                                     <i class="fa fa-map-marker"></i>
                                     Address: 20/F Green Road, Dhanmondi, Dhaka
                                 </li>
-                                <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12"> <i class="fa fa-envelope"></i> Email:<a href="mailto:autoworld@gmail.com">autoworld@gmail.com</a> </li>
+                                <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+                                    <i class="fa fa-envelope"></i>
+                                    Email:<a href="mailto:autoworld@gmail.com">autoworld@gmail.com</a>
+                                </li>
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-phone"></i>
                                     Phone: <a href="tel:0983 456 789">0983 456 789</a>
@@ -294,12 +351,12 @@ month.oninput = function() {
                     	</div>
                     </div>
                 </div>
-          </div>
+            </div>
 
-      </div>
+        </div>
     </footer>
 
->>>>>>> 8d85f7b4639e518b6901bceb33e787a37b2ac2dd
+
 </body>
 </html>
 <%

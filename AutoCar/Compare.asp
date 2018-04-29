@@ -60,7 +60,7 @@ rcCar2_numRows = 0
 
 <!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-comparison.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:27 GMT -->
 <head>
-    <title>Auto Car - Car Dealer HTML Template</title>
+    <title>Auto Car - Car Compare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -71,37 +71,88 @@ rcCar2_numRows = 0
     <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">
     <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
+    
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" >
-
-    <!-- Google fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
-
-
-    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 
 </head>
 <body>
-<!--header top -->
 <header class="top-header hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                <div class="list-inline">
-                    <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 3456789</a>
-                    <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>AUTOWORLD@gmail.com</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                    <div class="list-inline">
+                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
+                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                    <ul class="social-list clearfix pull-right">
+                        <li>
+                            <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                <ul class="social-list clearfix pull-right">
-                    <li>
-                        <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </div>
-</header>
+    </header>
+<!-- Main header start -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navigation"> <!--hình thức toggle--> <!--data cua toggle-->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="Home.html" class="logo">
+                        <img src="images/logos/green-light-logo.png" alt="logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" id="app-navigation">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="Home.html" >
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="CarListing.asp" >
+                                Car Listing
+                            </a>
+                            
+                        </li>
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Pages<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="Compare.asp" tabindex="0">Compare</a>
+                                </li>
+                                <li>
+                                    <a href="BankListing.asp" tabindex="1">Bank Listing</a>
+                                </li>
+                                <li>
+                                    <a href="CarmakerListing.asp" tabindex="1">Carmakers Listing</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Contact<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="About.html">About Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>                
+                </div>
+            </nav>
+        </div>
+    </header>
 <!-- Sub banner start -->
 <div class="sub-banner">
     <div class="overlay">
@@ -109,10 +160,10 @@ rcCar2_numRows = 0
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-area">
-                        <h2>Car Comparison</h2>
+                        <h2>Car Compare</h2>
                         <ul class="breadcrumbs">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">>&nbsp;Car Comparison</li>
+                            <li><a href="Home.html">Home</a></li>
+                            <li class="active">Car Compare</li>
                         </ul>
                     </div>
                 </div>
@@ -120,8 +171,6 @@ rcCar2_numRows = 0
         </div>
     </div>
 </div>
-<!-- Sub banner end -->
-
 <!-- Comparison start -->
 <div class="comparison content-area">
     <div class="container">
@@ -133,7 +182,7 @@ rcCar2_numRows = 0
             </div>
             <div class="col-lg-8 col-md-8">
                 <div class="single-block Compare-search">
-                    <form method="get" action="So_sanh.asp">
+                    <form method="get" action="Compare.asp">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="form-group search-fields" >
@@ -190,7 +239,7 @@ rcCar2_numRows = 0
             <div class="col-md-6 col-sm-6">
                 <div class="thumbnail Compare-car">
                     <div class="car-box-thumbnail">
-                        <img src="images/grid/<%=(rcCarS.Fields.Item("IMAGECAR").Value)%>" alt="car-1" class="img-responsive">
+                        <img style="height:400px" src="images/imagesCar/<%=(rcCarS.Fields.Item("IMAGECAR").Value)%>" alt="car-1" class="img-responsive">
                     </div>
                     <!-- detail -->
                     <div class="caption detail clearfix">
@@ -205,7 +254,7 @@ rcCar2_numRows = 0
             <div class="col-md-6 col-sm-6">
                 <div class="thumbnail Compare-car">
                     <div class="car-box-thumbnail">
-                        <img src="images/grid/<%=(rcCar2.Fields.Item("IMAGECAR").Value)%>" alt="car-2" class="img-responsive">
+                        <img style="height:400px" style="height:300px" src="images/imagesCar/<%=(rcCar2.Fields.Item("IMAGECAR").Value)%>" alt="car-2" class="img-responsive">
                     </div>
                     <!-- detail -->
                     <div class="caption detail clearfix">
@@ -290,98 +339,6 @@ rcCar2_numRows = 0
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade features" id="extraFeatures">
-                        <div class="panel-div">
-                            <div class="panel-group" role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading active" role="tab" id="heading7">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Lorem ipsum dolor sit amet
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-                                        <div class="panel-body panel-body-2">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum. Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.
-                                                Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                                            <span>Was this answer helpful? <a href="#">Yes</a> <a href="#">No</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading active" role="tab" id="heading8">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Lorem ipsum dolor sit amet
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-                                        <div class="panel-body panel-body-2">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum. Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.
-                                                Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                                            <span>Was this answer helpful? <a href="#">Yes</a> <a href="#">No</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                <i class="fa fa-plus"></i>Lorem ipsum dolor sit amet
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
-                                        <div class="panel-body panel-body-2">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum. Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.
-                                                Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                                            <span>Was this answer helpful? <a href="#">Yes</a> <a href="#">No</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade technical" id="VehicleOverview">
-                        <div class="panel-div">
-                            <div class="panel-group" role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading active" role="tab" id="heading9">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Lorem ipsum dolor sit amet
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-                                        <div class="panel-body panel-body-2">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum. Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.
-                                                Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                                            <span>Was this answer helpful? <a href="#">Yes</a> <a href="#">No</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="heading10">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="false">
-                                                <i class="fa fa-plus"></i>Lorem ipsum dolor sit amet
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
-                                        <div class="panel-body panel-body-2">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum. Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.
-                                                Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                                            <span>Was this answer helpful? <a href="#">Yes</a> <a href="#">No</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -408,7 +365,7 @@ rcCar2_numRows = 0
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="logo-2">
-                            <a href="index.html">
+                            <a href="Home.html">
                                 <img src="picture/footer-logo.png" alt="footer-logo">
                             </a>
                         </div>

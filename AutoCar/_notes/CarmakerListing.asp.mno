@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rcMaker" value="name:IDMAKE;datatype:int,name:BRANDS;datatype:varchar,name:ADDRESSBRANDS;datatype:varchar,name:NOTE;datatype:varchar,name:IMAGEMAKE;datatype:varchar" />
+</info>
