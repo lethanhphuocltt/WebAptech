@@ -171,12 +171,12 @@ rcCar_numRows = 0
             <div class="car_details">
             	<div class="row">
                     <form method="get" action="So_sanh.asp">
-                    	<input type="text" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
+                    	<input type="text" hidden="true" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <button type="submit" class="btn btn-submit btn-warning">Contact Us</button>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <button type="submit" class="btn btn-submit btn-warning">Partial Payment</button>
+                            <button type="button" class="btn btn-submit btn-warning">Partial Payment</button>
                         </div> 
                     </form>
                 </div>              

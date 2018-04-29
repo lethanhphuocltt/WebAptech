@@ -27,12 +27,54 @@ Set rcCar = rcCar_cmd.Execute
 rcCar_numRows = 0
 %>
 <%
+Dim rcIdMake1__MMColParam
+rcIdMake1__MMColParam = "1"
+If (Request.QueryString("IdMake1") <> "") Then 
+  rcIdMake1__MMColParam = Request.QueryString("IdMake1")
+End If
+%>
+<%
+Dim rcIdMake1
+Dim rcIdMake1_cmd
+Dim rcIdMake1_numRows
+
+Set rcIdMake1_cmd = Server.CreateObject ("ADODB.Command")
+rcIdMake1_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcIdMake1_cmd.CommandText = "SELECT * FROM dbo.MAKE WHERE IDMAKE = ?" 
+rcIdMake1_cmd.Prepared = true
+rcIdMake1_cmd.Parameters.Append rcIdMake1_cmd.CreateParameter("param1", 5, 1, -1, rcIdMake1__MMColParam) ' adDouble
+
+Set rcIdMake1 = rcIdMake1_cmd.Execute
+rcIdMake1_numRows = 0
+%>
+<%
+Dim rcSLMake__MMColParam
+rcSLMake__MMColParam = "1"
+If (Request.QueryString("IdMake1") <> "") Then 
+  rcSLMake__MMColParam = Request.QueryString("IdMake1")
+End If
+%>
+<%
+Dim rcSLMake
+Dim rcSLMake_cmd
+Dim rcSLMake_numRows
+
+Set rcSLMake_cmd = Server.CreateObject ("ADODB.Command")
+rcSLMake_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcSLMake_cmd.CommandText = "SELECT * FROM dbo.CAR WHERE IDMAKE = ?" 
+rcSLMake_cmd.Prepared = true
+rcSLMake_cmd.Parameters.Append rcSLMake_cmd.CreateParameter("param1", 5, 1, -1, rcSLMake__MMColParam) ' adDouble
+
+Set rcSLMake = rcSLMake_cmd.Execute
+rcSLMake_numRows = 0
+%>
+<%
 Dim Repeat1__numRows
 Dim Repeat1__index
 
 Repeat1__numRows = -1
 Repeat1__index = 0
-rcCar_numRows = rcCar_numRows + Repeat1__numRows
+rcSLMake_numRows = rcSLMake_numRows + Repeat1__numRows
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -63,7 +105,7 @@ rcCar_numRows = rcCar_numRows + Repeat1__numRows
                         <h2>Car Grid Fullwidth</h2>
                         <ul class="breadcrumbs">
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">>&nbsp;Car Grid Fullwidth</li>
+                            <li class="active">Car Grid Fullwidth</li>
                         </ul>
                     </div>
                 </div>
@@ -90,27 +132,30 @@ rcCar_numRows = rcCar_numRows + Repeat1__numRows
                             </h4>
                         </div>
                         <div class="col-lg-6 col-md-7 col-sm-7 col-xs-10 cod-pad">
+                        <form method="get" action="danh_sach.asp">
                             <div class="sorting-options">
-                              <select class="sorting">
-                              	<option value="All" ></option>
+                              <select class="sorting" name="IdMake1">
                                 <%
-									While (NOT rcMake.EOF)
-									%>
-									<option value="<%=(rcMake.Fields.Item("IDMAKE").Value)%>"><%=(rcMake.Fields.Item("BRANDS").Value)%>
-                                    </option>
-																	<%
-									  rcMake.MoveNext()
-									Wend
-									If (rcMake.CursorType > 0) Then
-									  rcMake.MoveFirst
-									Else
-									  rcMake.Requery
-									End If
-									%>
+While (NOT rcMake.EOF)
+%>
+                                <option value="<%=(rcMake.Fields.Item("IDMAKE").Value)%>" <%If (Not isNull((rcIdMake1.Fields.Item("IDMAKE").Value))) Then If (CStr(rcMake.Fields.Item("IDMAKE").Value) = CStr((rcIdMake1.Fields.Item("IDMAKE").Value))) Then Response.Write("selected=""selected""") : Response.Write("")%> ><%=(rcMake.Fields.Item("BRANDS").Value)%></option>
+                                <%
+  rcMake.MoveNext()
+Wend
+If (rcMake.CursorType > 0) Then
+  rcMake.MoveFirst
+Else
+  rcMake.Requery
+End If
+%>
                               </select>
-                                                             
-                                
+                              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <button style="text-align:center" type="submit" class=" btn btn-submit btn-block clearfix">Search</button>
+                                </div>
+</a>
                             </div>
+                            
+                             </form>
                         </div>
                     </div>
                 </div>
@@ -119,78 +164,48 @@ rcCar_numRows = rcCar_numRows + Repeat1__numRows
                 <!-- Car grid start -->
                 <div class="row">
                   <% 
-					While ((Repeat1__numRows <> 0) AND (NOT rcCar.EOF)) 
-					%>
-					  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<!-- Car box start-->
-						<div class="thumbnail car-box clearfix">
-						  <div class="car-box-thumbnail">
-							<img src="images/grid/<%=(rcCar.Fields.Item("IMAGECAR").Value)%>" alt="car-2">
-							<div class="listing-price">
-							  <span class="del"><del>$<%=(rcCar.Fields.Item("PRICE").Value)%></del></span>
-							  </div>
-							</div>
-						  
-						  <!-- detail -->
-						  <div class="caption detail">
-							<!-- Header -->
-							<header class="clearfix">
-							  <h5 class="title">
-								<a href="chi_tiet.asp?IdCar=<%=(rcCar.Fields.Item("IDCAR").Value)%>"><%=(rcCar.Fields.Item("NAMECAR").Value)%></a>
-								</h5>
-							  <ul class="custom-list">
-								<li>
-								  <a href="#">New Car</a> /
-								  </li>
-								<li>
-								  <a href="#">Automatic</a> /
-								  </li>
-								<li>
-								  <a href="#">Sports</a>
-								  </li>
-								</ul>
-							  </header>
-							<!-- paragraph -->
-							<p><%=(rcCar.Fields.Item("NOTE").Value)%></p>
-							<!-- Facilities List -->
-							<div class="facilities-area">
-							  <ul class="facilities-list clearfix">
-								<li>
-								  <i class="flaticon-gasoline-pump"></i>
-								  <span><%=(rcCar.Fields.Item("FUELTYPE").Value)%></span>
-								  </li>
-								<li>
-								  <i class="flaticon-automatic-flash-symbol"></i>
-								  <span><%=(rcCar.Fields.Item("GASOLINE").Value)%></span>
-								  </li>
-								<li>
-								  <i class="flaticon-road-with-broken-line"></i>
-								  <span><%=(rcCar.Fields.Item("MILEAGE").Value)%></span>
-								  </li>
-								<li>
-								  <i class="flaticon-racing-flag"></i>
-								  <span>Chen` VIN</span>
-								  </li>
-								<li>
-								  <i class="flaticon-transport"></i>
-								  <span><%=(rcCar.Fields.Item("ENGINE").Value)%></span>
-								  </li>
-								<li>
-								  <i class="flaticon-time"></i>
-								  <span><%=(rcCar.Fields.Item("YEARMAKE").Value)%></span>
-								  </li>
-								</ul>
-							  </div>
-							</div>
-						  </div>
-						<!-- Car box end-->
-					  </div>
-					  <% 
-					  Repeat1__index=Repeat1__index+1
-					  Repeat1__numRows=Repeat1__numRows-1
-					  rcCar.MoveNext()
-					Wend
-					%>
+While ((Repeat1__numRows <> 0) AND (NOT rcSLMake.EOF)) 
+%>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <!-- Car box start-->
+    <div class="thumbnail car-box clearfix">
+      <div class="car-box-thumbnail"> <img src="images/grid/<%=(rcSLMake.Fields.Item("IMAGECAR").Value)%>" alt="car-2">
+        <div class="listing-price"> <span class="del"><del>$<%=(rcSLMake.Fields.Item("PRICE").Value)%></del></span> </div>
+        </div>
+      <!-- detail -->
+      <div class="caption detail">
+        <!-- Header -->
+        <header class="clearfix">
+          <h5 class="title"> <a href="chi_tiet.asp?IdCar=<%=(rcSLMake.Fields.Item("IDCAR").Value)%>"><%=(rcCar.Fields.Item("NAMECAR").Value)%></a> </h5>
+          <ul class="custom-list">
+            <li> <a href="#">New Car</a> / </li>
+            <li> <a href="#">Automatic</a> / </li>
+            <li> <a href="#">Sports</a> </li>
+            </ul>
+          </header>
+        <!-- paragraph -->
+        <p><%=(rcSLMake.Fields.Item("NOTE").Value)%></p>
+        <!-- Facilities List -->
+        <div class="facilities-area">
+          <ul class="facilities-list clearfix">
+            <li> <i class="flaticon-gasoline-pump"></i> <span><%=(rcSLMake.Fields.Item("FUELTYPE").Value)%></span> </li>
+            <li> <i class="flaticon-automatic-flash-symbol"></i> <span><%=(rcCar.Fields.Item("GASOLINE").Value)%></span> </li>
+            <li> <i class="flaticon-road-with-broken-line"></i> <span><%=(rcCar.Fields.Item("MILEAGE").Value)%></span> </li>
+            <li> <i class="flaticon-racing-flag"></i> <span>Chen` VIN</span> </li>
+            <li> <i class="flaticon-transport"></i> <span><%=(rcSLMake.Fields.Item("ENGINE").Value)%></span> </li>
+            <li> <i class="flaticon-time"></i> <span><%=(rcSLMake.Fields.Item("YEARMAKE").Value)%></span> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <!-- Car box end-->
+  </div>
+  <% 
+  Repeat1__index=Repeat1__index+1
+  Repeat1__numRows=Repeat1__numRows-1
+  rcSLMake.MoveNext()
+Wend
+%>
                 </div>
                 <!-- Car grid end-->
 
@@ -292,4 +307,12 @@ Set rcMake = Nothing
 <%
 rcCar.Close()
 Set rcCar = Nothing
+%>
+<%
+rcIdMake1.Close()
+Set rcIdMake1 = Nothing
+%>
+<%
+rcSLMake.Close()
+Set rcSLMake = Nothing
 %>

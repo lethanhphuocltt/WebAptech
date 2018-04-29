@@ -631,7 +631,6 @@ a:focus {
 
 
 .listing-price {
-    position: absolute;
     bottom: 15px;
     left: 15px;
     color: #FFF;
@@ -1325,7 +1324,7 @@ footer p {
     height: 15px;
 }
 /** BANK DETAILS **/
-.clearfixx {
+.clearfixx{
 	list-style-type:none;
 }
 .clearfixx li {

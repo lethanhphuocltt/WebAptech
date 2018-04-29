@@ -198,15 +198,7 @@ rcCar2_numRows = 0
                             <h5><%=(rcCarS.Fields.Item("NAMECAR").Value)%></h5>
                             <h6>$<%=(rcCarS.Fields.Item("PRICE").Value)%></h6>
                         </div>
-                        <div class="pull-right">
-                            <p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </p>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -221,15 +213,7 @@ rcCar2_numRows = 0
                             <h5><%=(rcCar2.Fields.Item("NAMECAR").Value)%></h5>
                             <h6>$<%=(rcCar2.Fields.Item("PRICE").Value)%></h6>
                         </div>
-                        <div class="pull-right">
-                            <p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </p>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
