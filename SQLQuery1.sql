@@ -6,7 +6,9 @@ CREATE TABLE MAKE
 (
 	IDMAKE INT IDENTITY(1,1) PRIMARY KEY,
 	BRANDS NVARCHAR(30),
-	ADDRESSBRANDS NVARCHAR(100)
+	ADDRESSBRANDS NVARCHAR(100),
+	NOTE VARCHAR(600),
+	IMAGEMAKE VARCHAR(50)
 )
 
 --
@@ -55,12 +57,12 @@ CREATE TABLE CONDITIONS
 --
 
 --
-INSERT INTO dbo.MAKE VALUES (N'Acura',NULL)
-INSERT INTO dbo.MAKE VALUES (N'BMW',NULL)
-INSERT INTO dbo.MAKE VALUES (N'Chevrolet',NULL)
-INSERT INTO dbo.MAKE VALUES (N'Ford',NULL)
-INSERT INTO dbo.MAKE VALUES (N'Honda',NULL)
-INSERT INTO dbo.MAKE VALUES (N'Jeep',NULL)
+INSERT INTO dbo.MAKE VALUES (N'Acura',NULL,'A premium brand of Honda, Japan. Originally introduced in 1986 in the North American and Hong Kong markets, the brand mainly produces luxury cars and sports cars. In 2004, the brand was introduced and sold in Mexico, in 2006 in China and Russia, and in the coming years Honda plans to introduce it to the Japanese market.','Acura.jpg')
+INSERT INTO dbo.MAKE VALUES (N'BMW',NULL,'BMW (Bayerische Motoren Werke AG) is an important German car and motorcycle manufacturer. BMW is world-famous brand for luxury, sporty design and high performance.','BMW.jpg')
+INSERT INTO dbo.MAKE VALUES (N'Chevrolet',NULL,'Chevrolet, commonly known as Chevy, is a full-fledged Chevrolet Division of the General Motors Company, a US automotive division of General Motors (GM). Louis Chevrolet and the founder of General Motors were disgraced. William C. Durant founded the company on November 3, 1911 as the Chevrolet Motor Car Company.','Chevrolet.jpg')
+INSERT INTO dbo.MAKE VALUES (N'Ford',NULL,'The company was founded by Henry Ford and its shareholders on June 16, 1903. In addition to Lincoln is subsidiaries, Ford also owns a minority stake in Mazda Japan and Aston Martin of Britain. Former Ford UK companies such as Jaguar and Land Rover were sold to India is Tata in March 2008.','Ford.jpg')
+INSERT INTO dbo.MAKE VALUES (N'Honda',NULL,'Honda is the world is largest engine manufacturer based in Tokyo, Japan. with more than 14 million units annually. Since 2004, the company has started to produce clean and quiet diesel engines that do not need filters to meet pollution standards. However, it can be said that the foundation that makes up this company is work is from making the motorbike.','Honda.jpg')
+INSERT INTO dbo.MAKE VALUES (N'Jeep',NULL,'An American automobile brand is a trademark of Chrysler Group LLC in a global alliance with Fiat. In 1987, the CEO of Chrysler Corporation acquired the Jeep brand, along with the remaining assets of American Motors.','Jeep.jpg')
 --
 
 --

@@ -1,3 +1,26 @@
+<%@LANGUAGE="VBSCRIPT"%>
+<!--#include file="Connections/cnAutoCar.asp" -->
+<%
+Dim rcMaker
+Dim rcMaker_cmd
+Dim rcMaker_numRows
+
+Set rcMaker_cmd = Server.CreateObject ("ADODB.Command")
+rcMaker_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcMaker_cmd.CommandText = "SELECT * FROM dbo.MAKE" 
+rcMaker_cmd.Prepared = true
+
+Set rcMaker = rcMaker_cmd.Execute
+rcMaker_numRows = 0
+%>
+<%
+Dim Repeat1__numRows
+Dim Repeat1__index
+
+Repeat1__numRows = -1
+Repeat1__index = 0
+rcMaker_numRows = rcMaker_numRows + Repeat1__numRows
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,112 +104,41 @@
                <div class="clearfix"></div>
 
                 <!-- Car list start -->
-                <div class="car-list-box clearfix wow fadeInUp">
-                    <div class=" row-table row-flush">
-                        <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
-                            <div class="car-box-thumbnail">
-                                <img src="images/logo_honda.jpg" class="img-responsive">                                                           
-                            </div>
-                        </div>
-                        <!-- Detail Body -->
-                        <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12 detail">
-                            <!-- Header -->
-                            <header>
-                                <!-- Title -->
-                                <h3 class="title">
-                                    <a href="car-details.html">Fiat Punto Red</a>
-                                </h3>
-                            </header>
-                            <div class="clearfix"></div>
-                            <!-- paragraph -->
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ever took a galley of type and scrambled it to make a type specimen
-                            </p>
-                            <!-- Facilities List -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="car-list-box clearfix wow fadeInUp">
-                    <div class=" row-table row-flush">
-                        <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
-                            <div class="car-box-thumbnail">
-                                <img src="images/logo_honda.jpg" class="img-responsive">                                
-                            </div>
-                        </div>
-                        <!-- Detail Body -->
-                        <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12 detail">
-                            <!-- Header -->
-                            <header>
-                                <!-- Title -->
-                                <h3 class="title">
-                                    <a href="car-details.html">2016 Jaguar</a>
-                                </h3>
-                                <!-- Custom List -->
-                            </header>
-                            <div class="clearfix"></div>
-                            <!-- paragraph -->
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ever took a galley of type and scrambled it to make a type specimen
-                            </p>
-                            <!-- Facilities List -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="car-list-box clearfix wow fadeInUp">
-                    <div class=" row-table row-flush">
-                        <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
-                            <div class="car-box-thumbnail">
-                                <img src="images/logo_honda.jpg" class="img-responsive">
-                            </div>
-                        </div>
-                        <!-- Detail Body -->
-                        <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12 detail">
-                            <!-- Header -->
-                            <header>
-                                <!-- Title -->
-                                <h3 class="title">
-                                    <a href="car-details.html">Ferrari Red Car</a>
-                                </h3>
-                                <!-- Custom List -->
-                            </header>
-                            <div class="clearfix"></div>
-                            <!-- paragraph -->
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ever took a galley of type and scrambled it to make a type specimen
-                            </p>
-                            <!-- Facilities List -->
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="car-list-box clearfix wow fadeInUp">
-                    <div class=" row-table row-flush">
-                        <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
-                            <div class="car-box-thumbnail">
-                                <img src="images/logo_honda.jpg" class="img-responsive">                              
-                            </div>
-                        </div>
-                        <!-- Detail Body -->
-                        <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12 detail">
-                            <!-- Header -->
-                            <header>
-                                <!-- Title -->
-                                <h3 class="title">
-                                    <a href="car-details.html">Black Bmw M Zero Luxury Car</a>
-                                </h3>
-                            </header>
-                            <div class="clearfix"></div>
-                            <!-- paragraph -->
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ever took a galley of type and scrambled it to make a type specimen
-                            </p>
-                            <!-- Facilities List -->
-                        </div>
-                    </div>
-                </div>
-				<!-- Car list end-->
+                <% 
+While ((Repeat1__numRows <> 0) AND (NOT rcMaker.EOF)) 
+%>
+  <div class="car-list-box clearfix wow fadeInUp">
+    <div class=" row-table row-flush">
+      <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
+        <div class="car-box-thumbnail">
+          <img src="images/logoMaker/<%=(rcMaker.Fields.Item("IMAGEMAKE").Value)%>" class="img-responsive">                              
+          </div>
+        </div>
+      <!-- Detail Body -->
+      <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12 detail">
+        <!-- Header -->
+        <header>
+          <!-- Title -->
+          <h3 class="title">
+            <a href="car-details.html"><%=(rcMaker.Fields.Item("BRANDS").Value)%></a>
+            </h3>
+          </header>
+        <div class="clearfix"></div>
+        <!-- paragraph -->
+        <p>
+          <%=(rcMaker.Fields.Item("NOTE").Value)%>
+          </p>
+        <!-- Facilities List -->
+        </div>
+      </div>
+  </div>
+  <% 
+  Repeat1__index=Repeat1__index+1
+  Repeat1__numRows=Repeat1__numRows-1
+  rcMaker.MoveNext()
+Wend
+%>
+<!-- Car list end-->
 
                 <!-- Page navigation Start-->
                 <nav aria-label="Page navigation">
@@ -345,5 +297,8 @@
     </footer>
 </body>
 
-<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:18 GMT -->
 </html>
+<%
+rcMaker.Close()
+Set rcMaker = Nothing
+%>
