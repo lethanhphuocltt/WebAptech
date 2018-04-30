@@ -1,49 +1,125 @@
 <%@LANGUAGE="VBSCRIPT"%>
 <!--#include file="Connections/cnAutoCar.asp" -->
 <%
-Dim rcCar__MMColParam
-rcCar__MMColParam = "1"
-If (Request.QueryString("IdCar") <> "") Then 
-  rcCar__MMColParam = Request.QueryString("IdCar")
+Dim rcWarranty__MMColParam
+rcWarranty__MMColParam = "1"
+If (Request.QueryString("IdMake") <> "") Then 
+  rcWarranty__MMColParam = Request.QueryString("IdMake")
 End If
 %>
 <%
-Dim rcCar
-Dim rcCar_cmd
-Dim rcCar_numRows
+Dim rcWarranty
+Dim rcWarranty_cmd
+Dim rcWarranty_numRows
 
-Set rcCar_cmd = Server.CreateObject ("ADODB.Command")
-rcCar_cmd.ActiveConnection = MM_cnAutoCar_STRING
-rcCar_cmd.CommandText = "SELECT * FROM dbo.CAR WHERE IDCAR = ?" 
-rcCar_cmd.Prepared = true
-rcCar_cmd.Parameters.Append rcCar_cmd.CreateParameter("param1", 5, 1, -1, rcCar__MMColParam) ' adDouble
+Set rcWarranty_cmd = Server.CreateObject ("ADODB.Command")
+rcWarranty_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcWarranty_cmd.CommandText = "SELECT * FROM dbo.WARRANTY WHERE IDMAKE = ?" 
+rcWarranty_cmd.Prepared = true
+rcWarranty_cmd.Parameters.Append rcWarranty_cmd.CreateParameter("param1", 5, 1, -1, rcWarranty__MMColParam) ' adDouble
 
-Set rcCar = rcCar_cmd.Execute
-rcCar_numRows = 0
+Set rcWarranty = rcWarranty_cmd.Execute
+rcWarranty_numRows = 0
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%
+Dim rcMake__MMColParam
+rcMake__MMColParam = "1"
+If (Request.QueryString("IdMake") <> "") Then 
+  rcMake__MMColParam = Request.QueryString("IdMake")
+End If
+%>
+<%
+Dim rcMake
+Dim rcMake_cmd
+Dim rcMake_numRows
+
+Set rcMake_cmd = Server.CreateObject ("ADODB.Command")
+rcMake_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcMake_cmd.CommandText = "SELECT * FROM dbo.MAKE WHERE IDMAKE = ?" 
+rcMake_cmd.Prepared = true
+rcMake_cmd.Parameters.Append rcMake_cmd.CreateParameter("param1", 5, 1, -1, rcMake__MMColParam) ' adDouble
+
+Set rcMake = rcMake_cmd.Execute
+rcMake_numRows = 0
+%>
+<%
+Dim rcDW__MMColParam
+rcDW__MMColParam = "1"
+If (Request.QueryString("IdMake") <> "") Then 
+  rcDW__MMColParam = Request.QueryString("IdMake")
+End If
+%>
+<%
+Dim rcDW
+Dim rcDW_cmd
+Dim rcDW_numRows
+
+Set rcDW_cmd = Server.CreateObject ("ADODB.Command")
+rcDW_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcDW_cmd.CommandText = "SELECT d.* FROM dbo.WARRANTY w, dbo.DETAILSWARRANTY d, dbo.MAKE m WHERE d.IDWARRANTY = w.ID AND m.IDMAKE= w.IDMAKE AND m.IDMAKE= ?" 
+rcDW_cmd.Prepared = true
+rcDW_cmd.Parameters.Append rcDW_cmd.CreateParameter("param1", 5, 1, -1, rcDW__MMColParam) ' adDouble
+
+Set rcDW = rcDW_cmd.Execute
+rcDW_numRows = 0
+%>
+<%
+Dim rcCW__MMColParam
+rcCW__MMColParam = "1"
+If (Request.QueryString("IdMake") <> "") Then 
+  rcCW__MMColParam = Request.QueryString("IdMake")
+End If
+%>
+<%
+Dim rcCW
+Dim rcCW_cmd
+Dim rcCW_numRows
+
+Set rcCW_cmd = Server.CreateObject ("ADODB.Command")
+rcCW_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcCW_cmd.CommandText = "SELECT c.* FROM dbo.WARRANTY w, dbo.CONDITIONSWARRANTY c, dbo.MAKE m WHERE c.IDWARRANTY = w.ID AND m.IDMAKE= w.IDMAKE AND m.IDMAKE=?" 
+rcCW_cmd.Prepared = true
+rcCW_cmd.Parameters.Append rcCW_cmd.CreateParameter("param1", 5, 1, -1, rcCW__MMColParam) ' adDouble
+
+Set rcCW = rcCW_cmd.Execute
+rcCW_numRows = 0
+%>
+<%
+Dim Repeat1__numRows
+Dim Repeat1__index
+
+Repeat1__numRows = -1
+Repeat1__index = 0
+rcDW_numRows = rcDW_numRows + Repeat1__numRows
+%>
+<%
+Dim Repeat2__numRows
+Dim Repeat2__index
+
+Repeat2__numRows = -1
+Repeat2__index = 0
+rcCW_numRows = rcCW_numRows + Repeat2__numRows
+%>
+<% Dim Luu%>
+<!doctype html>
+<html>
 <head>
-	<title>Auto Car - Car Details</title>
+	<title>Auto Car - Warranty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" >
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">
+    <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
+ 
 
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
-  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">
-
-  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/linearicons/style.css">
-  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
-  <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
-  <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<header class="top-header hidden-xs">
+ <header class="top-header hidden-xs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
@@ -72,7 +148,7 @@ rcCar_numRows = 0
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="logo">
+                    <a href="Home.html" class="logo">
                         <img src="images/logos/green-light-logo.png" alt="logo">
                     </a>
                 </div>
@@ -127,10 +203,10 @@ rcCar_numRows = 0
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-area">
-                        <h2>Car Details</h2>
+                        <h2>Warranty</h2>
                         <ul class="breadcrumbs">
                             <li><a href="Home.html">Home</a></li>
-                            <li class="active">Car Details</li>
+                            <li class="active">Warranty</li>
                         </ul>
                     </div>
                 </div>
@@ -138,120 +214,88 @@ rcCar_numRows = 0
         </div>
     </div>
 </div>
-<!-- sub banner end -->
+<!--end main header start -->
 
+
+<!--end block heading start -->
+<div class="tl col-lg-9 col-xs-12 col-xs-offset-1">
+<div class="">
+  <div class="row" >
+     
+     <div class="col-lg-4 col-xs-5" >
+       <h3 style="text-align:center">Car Manufacturer</h3>
+     </div>
+     <div class="col-lg-5 col-xs-7">
+       <h3 style="text-align:center"><%=(rcMake.Fields.Item("BRANDS").Value)%></h3>
+     </div>
+     
+  </div>
+  <div>
+    <form>
+      <hr>
+      </hr>
+      <div class="row">
+        <div class="col-lg-4 col-xs-5" >
+          <h3 style="text-align:center">Warranty Conditions</h3>
+        </div>
+        <div class="col-lg-5 col-xs-7">
+          <ul>
+            <% 
+While ((Repeat2__numRows <> 0) AND (NOT rcCW.EOF)) 
+%>
+  <li><%=(rcCW.Fields.Item("CONDITION").Value)%></li>
+  <% 
+  Repeat2__index=Repeat2__index+1
+  Repeat2__numRows=Repeat2__numRows-1
+  rcCW.MoveNext()
+Wend
+%>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      </hr>
+      <div class="row">
+        <div class="col-lg-4 col-xs-5" >
+          <h3 style="text-align:center">Warranty Information</h3>
+        </div>
+        <div class="col-lg-5 col-xs-7">
+          <ul>
+            <% 
+While ((Repeat1__numRows <> 0) AND (NOT rcDW.EOF)) 
+%>
+              <li><%=(rcDW.Fields.Item("DETAIL").Value)%></li>
+              <% 
+  Repeat1__index=Repeat1__index+1
+  Repeat1__numRows=Repeat1__numRows-1
+  rcDW.MoveNext()
+Wend
+%>
+          </ul>
+        </div>
+      </div>
+      </hr>
+      <hr>
+      </hr>
+      <div class="row">
+        <div class="col-lg-4 col-xs-5" >
+          <h3 style="text-align:center">Warranty Period</h3>
+        </div>
+        <div class="col-lg-5 col-xs-7">
+          <ul>
+            <li><%=(rcWarranty.Fields.Item("TIMEWARRANTY").Value)%><span> Month</span></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+<hr>	</hr>
+  </div>
+</div>
+</div> 
 <!-- -->
 
-<!-- Car details body start-->
-<div class="car-details-body content-area">
- <div class="container">
- 	<div class="row">
-    	<div class="col-lg-12">
-        	<div class="details-option-bar">
-            	<div class="row">
-                	<div class="col-md-12">
-                    	<div class="pull_left">
-                        	<h3><%=(rcCar.Fields.Item("NAMECAR").Value)%></h3>
-                        </div>
-                        <div class="pull_right">
-                        	<h3>$<%=(rcCar.Fields.Item("PRICE").Value)%></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-    	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        	<div class="car_details">
-            	<div class="car_details_img">
-               	  <img src="images/imagesCar/<%=(rcCar.Fields.Item("IMAGECAR").Value)%>" width=100%/>
-                </div>
-                <div class="amenities_single_block">
-                	<h2 class="title">SPECIFICATIONS</h2>
-                    <div class="row">
-                    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 amenities-box">
-                        	<ul>
-                            	<li>
-                                	<strong>Fuel Type: </strong><%=(rcCar.Fields.Item("FUELTYPE").Value)%>
-                                </li>
-                            	<li>
-                                	<strong>Stock: </strong><%=(rcCar.Fields.Item("STOCK").Value)%>
-                                </li>                            	<li>
-                                	<strong>Gasoline: </strong><%=(rcCar.Fields.Item("GASOLINE").Value)%>
-                                </li>                                
-                            </ul>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 amenities-box">
-                        	<ul>
-                            	<li>
-                                	<strong>Engine: </strong><%=(rcCar.Fields.Item("ENGINE").Value)%>
-                                </li>
-                            	<li>
-                                	<strong>Transmission: </strong><%=(rcCar.Fields.Item("TRANSMISSION").Value)%>
-                                </li>                            	<li>
-                                	<strong>VIN: </strong><%=(rcCar.Fields.Item("VIN").Value)%>
-                                </li>                                
-                            </ul>
-                        
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-ld-4 col-md-4 col-sm-12 col-xs-12">
-        	<div class="car_details">
-                <div class="amenities_single_block1">
-                	<h3 title="Specifications">SPECIFICATIONS</h3>
-	            	<ul>
-            			<li>
-                        	<span>Fuel Type:</span><%=(rcCar.Fields.Item("FUELTYPE").Value)%>
-                        </li>
-            			<li>
-                        	<span>Stock:</span><%=(rcCar.Fields.Item("STOCK").Value)%>
-                        </li>
-            			<li>
-                        	<span>Gasoline:</span><%=(rcCar.Fields.Item("GASOLINE").Value)%>
-                        </li>
-            			<li>
-                        	<span>Engine:</span><%=(rcCar.Fields.Item("ENGINE").Value)%>
-                        </li>
-                        <li>
-                        	<span>Transmission:</span><%=(rcCar.Fields.Item("TRANSMISSION").Value)%>
-                        </li>
-                        <li>
-                        	<span>VIN:</span><%=(rcCar.Fields.Item("VIN").Value)%>
-                        </li>
-                        <li>
-                        	<span>Mileage:</span><%=(rcCar.Fields.Item("MILEAGE").Value)%>
-                        </li>
-                                             
-            		</ul>
-                </div>            		
-            </div>
-            <div class="car_details">
-            	<div class="row">
-                    <form method="get" action="Compare.asp">
-                    	<input type="text" hidden="true" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <button type="submit" class="btn btn-submit btn-warning">Contact Us</button>
-                        </div> 
-                    </form>
-                    <form method="get" action="Warranty.asp">
-                    	<input type="text" hidden="true" name="IdMake" value="<%=(rcCar.Fields.Item("IDMAKE").Value)%>" />
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <button type="submit" class="btn btn-submit btn-warning">Warranty</button>
-                        </div> 
-                    </form>
-                </div>              
-            </div>
-        </div>
-    </div>
- </div>
-</div>
-<!-- Car details body end-->
-<!-- Featured car end-->
+<!--footer -->
     <footer class="clearfix">
         <div class="container">
             <!-- Sub footer-->
@@ -345,10 +389,20 @@ rcCar_numRows = 0
     </footer>
 
 </body>
-</html
->
+</html>
 <%
-rcCar.Close()
-Set rcCar = Nothing
+rcWarranty.Close()
+Set rcWarranty = Nothing
 %>
->
+<%
+rcMake.Close()
+Set rcMake = Nothing
+%>
+<%
+rcDW.Close()
+Set rcDW = Nothing
+%>
+<%
+rcCW.Close()
+Set rcCW = Nothing
+%>

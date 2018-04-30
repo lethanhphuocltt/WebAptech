@@ -24,7 +24,7 @@ rcAllBank_numRows = rcAllBank_numRows + Repeat1__numRows
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:15 GMT -->
+
 <head>
     <title>Auto Car - Bank Listing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -265,7 +265,7 @@ Wend
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="logo-2">
-                            <a href="Home.html">
+                            <a href="index.html">
                                 <img src="picture/footer-logo.png" alt="footer-logo">
                             </a>
                         </div>
@@ -274,8 +274,8 @@ Wend
                 <!-- -->
 <div class="container">
         <div class="main-title">
-            <h1>We Are The Best</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc..</p>
+            <h1>Our mission</h1>
+            <p>We’re on a mission to help you find the perfect car, at the perfect price.</p>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
@@ -283,32 +283,31 @@ Wend
                     <i class="flaticon-security"> </i>
                   
                     <h4>Highly  Secured</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>They are cam đoan your transactions information you is complete the security.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
                 <div class="content">
                     <i class="flaticon-handshake"></i>
                     <h4>Trusted Agents</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>Autocar has been operating for over 100 years with the trust of all people.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
                 <div class="content">
                     <i class="flaticon-dollar-sticker"></i>
                     <h4>Get an Offer</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>The National Online Estate Agents. We work on a no-sale, no-fee basis and have over 100 years combined experience.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
                 <div class="content">
                     <i class="flaticon-call-center-agent"></i>
                     <h4>24/7 CUSTOMER SUPPORT</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>At AutoCar, we're all about helping you get around. Our Technical Support team is available for any questions you may have regarding products. Our multilingual 24/7 support allows to keep in touch with customers in all time zones and regions.</p>
                 </div>
             </div>
         </div> 
-        <a href="#" class="btn btn-submit">Read More</a>
     </div>
 
 <script>
@@ -320,7 +319,7 @@ Wend
     ga('create', 'UA-100829780-2', 'auto');
     ga('send', 'pageview');
 	</script>
-	<!-- -->
+
                 <div class="row">
                 	<div class="footerinfo">
                     	<p class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12" style="text-align:center; font-size:20px;">
@@ -352,7 +351,6 @@ Wend
     </footer>
 </body>
 
-<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:18 GMT -->
 </html>
 <%
 rcAllBank.Close()

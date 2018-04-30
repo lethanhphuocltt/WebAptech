@@ -50,6 +50,27 @@ CREATE TABLE CONDITIONS
 	CONDITION VARCHAR(200)
 )
 
+CREATE TABLE WARRANTY
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IDMAKE INT FOREIGN KEY REFERENCES MAKE(IDMAKE),
+	TIMEWARRANTY INT
+)
+
+CREATE TABLE CONDITIONSWARRANTY
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IDWARRANTY INT FOREIGN KEY REFERENCES dbo.WARRANTY(ID),
+	CONDITION VARCHAR(500)
+)
+
+CREATE TABLE DETAILSWARRANTY
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IDWARRANTY INT FOREIGN KEY REFERENCES dbo.WARRANTY(ID),
+	DETAIL VARCHAR(500)
+)
+
 
 --
 
@@ -64,8 +85,57 @@ INSERT INTO dbo.MAKE VALUES (N'Ford',NULL,'The company was founded by Henry Ford
 INSERT INTO dbo.MAKE VALUES (N'Honda',NULL,'Honda is the world is largest engine manufacturer based in Tokyo, Japan. with more than 14 million units annually. Since 2004, the company has started to produce clean and quiet diesel engines that do not need filters to meet pollution standards. However, it can be said that the foundation that makes up this company is work is from making the motorbike.','Honda.jpg')
 INSERT INTO dbo.MAKE VALUES (N'Jeep',NULL,'An American automobile brand is a trademark of Chrysler Group LLC in a global alliance with Fiat. In 1987, the CEO of Chrysler Corporation acquired the Jeep brand, along with the remaining assets of American Motors.','Jeep.jpg')
 --
+INSERT INTO dbo.WARRANTY VALUES  (1,24)
+INSERT INTO dbo.WARRANTY VALUES  (2,56)
+INSERT INTO dbo.WARRANTY VALUES  (3,123)
+INSERT INTO dbo.WARRANTY VALUES  (4,78)
+INSERT INTO dbo.WARRANTY VALUES  (5,24)
+INSERT INTO dbo.WARRANTY VALUES  (6,24)
 
---
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (1,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (1,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (1,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (2,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (2,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (2,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (3,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (3,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (3,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (4,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (4,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (4,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (5,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (5,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (5,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (6,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (6,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (6,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (1,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (1,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (2,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (2,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (3,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (3,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (4,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (4,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (5,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (5,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (6,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (6,'Lubricant free')
+
 INSERT INTO dbo.CAR
 VALUES  ( 
           '' , -- NOTE - varchar(300)
@@ -415,3 +485,6 @@ INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'Have monthly income gr
 INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'Total assets over 8000000$')
 INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'Full identity papers')
 INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'No previous loan')
+
+SELECT c.* FROM dbo.WARRANTY w, dbo.CONDITIONSWARRANTY c, dbo.MAKE m WHERE c.IDWARRANTY = w.ID AND m.IDMAKE= w.IDMAKE AND m.IDMAKE='1'
+SELECT d.* FROM dbo.MAKE m , dbo.WARRANTY w , dbo.DETAILSWARRANTY d  WHERE m.IDMAKE = w.IDMAKE AND w.ID=d.IDWARRANTY AND w.IDMAKE ='1'
