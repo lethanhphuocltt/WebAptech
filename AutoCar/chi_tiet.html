@@ -7,6 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
   <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="bootstrap/css/bootstrap--.css"
@@ -175,6 +176,7 @@
     </div>
  </div>
 </div>
+<div id="map" style="width:100%;height:250px;background:yellow"></div>
 <!-- Car details body end-->
 <<<<<<< HEAD
 <!--footer -->
@@ -243,6 +245,68 @@
     ga('create', 'UA-100829780-2', 'auto');
     ga('send', 'pageview');
 	</script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+<script>
+    function LoadMap(propertes) {
+        var defaultLat = 40.7110411;
+        var defaultLng = -74.0110326;
+        var mapOptions = {
+            center: new google.maps.LatLng(defaultLat, defaultLng),
+            zoom: 15,
+            scrollwheel: false,
+            styles: [
+                {
+                    featureType: "administrative",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    featureType: 'poi.business',
+                    stylers: [{visibility: 'off'}]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'labels.icon',
+                    stylers: [{visibility: 'off'}]
+                },
+            ]
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var infoWindow = new google.maps.InfoWindow();
+        var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+        (function (marker) {
+            google.maps.event.addListener(marker, "click", function (e) {
+                infoWindow.setContent("" +
+                        "<div class='map-properties contact-map-content'>" +
+                        "<div class='map-content'>" +
+                        "<p class='address'>20-21 Kathal St. Tampa City, FL</p>" +
+                        "<ul class='map-properties-list'> " +
+                        "<li><i class='fa fa-phone'></i>  +0477 8556 552</li> " +
+                        "<li><i class='fa fa-envelope'></i>  sales@realhouse.com</li> " +
+                        "<li><a href='index.html'><i class='fa fa-globe'></i>  http://www.example.com</li></a> " +
+                        "</ul>" +
+                        "</div>" +
+                        "</div>");
+                infoWindow.open(map, marker);
+            });
+        })(marker);
+    }
+    LoadMap();
+</script>
                 <!-- -->
                 <div class="row">
                 	<div class="footerinfo">
@@ -270,8 +334,7 @@
                     </div>
                 </div>
             </div>
-
-        </div>
+          </div>
     </footer>
 =======
 >>>>>>> 537aa68e05328df6aaea53d0d00f99f91a0651a5
