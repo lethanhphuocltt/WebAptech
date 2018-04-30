@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rcAllBank" value="name:IDBANK;datatype:int,name:NAMEBANK;datatype:varchar,name:IMAGEBANK;datatype:varchar,name:SUMMARY;datatype:varchar,name:MAXAMOUNT;datatype:float,name:INTERESTRATE;datatype:float,name:TIMEREPAY;datatype:int" />
+</info>

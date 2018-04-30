@@ -24,53 +24,115 @@ rcCar_numRows = 0
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CHI TIẾT</title>
-  <title>Car Details</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<title>Auto Car - Car Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" >
+
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/linearicons/style.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+  <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
   <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap--.css"
 </head>
 
 <body>
-<!--TOP HEADER -->
 <header class="top-header hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-                <div class="list-inline">
-                    <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 3456789</a>
-                    <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>AUTOWORLD@gmail.com</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+                    <div class="list-inline">
+                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
+                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                    <ul class="social-list clearfix pull-right">
+                        <li>
+                            <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                <ul class="social-list clearfix pull-right">
-                    <li>
-                        <a href="#" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </div>
-</header>
-<!-- sub banner strated -->
-<div class="sub_banner">
-	<div class="overlay">
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-md-12">
-                	<div class="breadcrumb-area">
-                		<h2>CAR DETAILS</h2>
-                    	<ul class="breadcrumbs">
-                    		<li class="active">
-                        		<a href="#">Home</a>
-                        	</li>
-                        	<li> &nbsp;>&nbsp; Car Details</li>
-                    	</ul>
-                    </div>            
+    </header>
+<!-- Main header start -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navigation"> <!--hình thức toggle--> <!--data cua toggle-->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" class="logo">
+                        <img src="images/logos/green-light-logo.png" alt="logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" id="app-navigation">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="Home.html" >
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="CarListing.asp" >
+                                Car Listing
+                            </a>
+                            
+                        </li>
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Pages<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="Compare.asp" tabindex="0">Compare</a>
+                                </li>
+                                <li>
+                                    <a href="BankListing.asp" tabindex="1">Bank Listing</a>
+                                </li>
+                                <li>
+                                    <a href="CarmakerListing.asp" tabindex="1">Carmakers Listing</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a tabindex="0" data-toggle="dropdown" >
+                                Contact<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="About.html">About Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>                
+                </div>
+            </nav>
+        </div>
+    </header>
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-area">
+                        <h2>Car Details</h2>
+                        <ul class="breadcrumbs">
+                            <li><a href="Home.html">Home</a></li>
+                            <li class="active">Car Details</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +165,7 @@ rcCar_numRows = 0
     	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         	<div class="car_details">
             	<div class="car_details_img">
-               	  <img src="images/grid/<%=(rcCar.Fields.Item("IMAGECAR").Value)%>" width=100%/>
+               	  <img src="images/imagesCar/<%=(rcCar.Fields.Item("IMAGECAR").Value)%>" width=100%/>
                 </div>
                 <div class="amenities_single_block">
                 	<h2 class="title">SPECIFICATIONS</h2>
@@ -170,11 +232,14 @@ rcCar_numRows = 0
             </div>
             <div class="car_details">
             	<div class="row">
-                    <form method="get" action="So_sanh.asp">
-                    	<input type="text" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
+                    <form method="get" action="Compare.asp">
+                    	<input type="text" hidden="true" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <button type="submit" class="btn btn-submit btn-warning">Contact Us</button>
-                        </div>
+                        </div> 
+                    </form>
+                    <form method="get" action="Compare.asp">
+                    	<input type="text" hidden="true" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <button type="submit" class="btn btn-submit btn-warning">Partial Payment</button>
                         </div> 
@@ -186,7 +251,7 @@ rcCar_numRows = 0
  </div>
 </div>
 <!-- Car details body end-->
-<!--footer -->
+<!-- Featured car end-->
     <footer class="clearfix">
         <div class="container">
             <!-- Sub footer-->
@@ -200,11 +265,11 @@ rcCar_numRows = 0
                         </div>
                     </div>
                 </div>
-                <!--container -->
-                <div class="container">
+                <!-- -->
+<div class="container">
         <div class="main-title">
-            <h1>We Are The Best</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc..</p>
+            <h1>Our mission</h1>
+            <p>We’re on a mission to help you find the perfect car, at the perfect price.</p>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
@@ -212,37 +277,33 @@ rcCar_numRows = 0
                     <i class="flaticon-security"> </i>
                   
                     <h4>Highly  Secured</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>They are cam đoan your transactions information you is complete the security.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-03s" style="visibility: visible; animation-name: fadeInLeft;">
                 <div class="content">
                     <i class="flaticon-handshake"></i>
                     <h4>Trusted Agents</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>Autocar has been operating for over 100 years with the trust of all people.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
                 <div class="content">
                     <i class="flaticon-dollar-sticker"></i>
                     <h4>Get an Offer</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>The National Online Estate Agents. We work on a no-sale, no-fee basis and have over 100 years combined experience.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-03s" style="visibility: visible; animation-name: fadeInRight;">
                 <div class="content">
                     <i class="flaticon-call-center-agent"></i>
                     <h4>24/7 CUSTOMER SUPPORT</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+                    <p>At AutoCar, we're all about helping you get around. Our Technical Support team is available for any questions you may have regarding products. Our multilingual 24/7 support allows to keep in touch with customers in all time zones and regions.</p>
                 </div>
             </div>
         </div> 
-        <a href="#" class="btn btn-submit">Read More</a>
     </div>
-<script src="./Auto Car - Car Dealer HTML Template_files/ie10-viewport-bug-workaround.js.tải xuống"></script>
 
-<!-- Custom javascript -->
-<script src="./Auto Car - Car Dealer HTML Template_files/app.js.tải xuống"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -252,7 +313,7 @@ rcCar_numRows = 0
     ga('create', 'UA-100829780-2', 'auto');
     ga('send', 'pageview');
 	</script>
-                <!-- -->
+
                 <div class="row">
                 	<div class="footerinfo">
                     	<p class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12" style="text-align:center; font-size:20px;">

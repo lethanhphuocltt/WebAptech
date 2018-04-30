@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rcBankSL" value="name:IDBANK;datatype:int,name:NAMEBANK;datatype:varchar,name:IMAGEBANK;datatype:varchar,name:SUMMARY;datatype:varchar,name:MAXAMOUNT;datatype:float,name:INTERESTRATE;datatype:float,name:TIMEREPAY;datatype:int" />
+	<infoitem key="UD_rcConditionsSL" value="name:ID;datatype:int,name:IDBANK;datatype:int,name:CONDITION;datatype:varchar" />
+</info>

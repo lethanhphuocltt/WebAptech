@@ -1,19 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>index</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="testCSS/css/2.css">
-  <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">s
-  <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
-  <link rel="stylesheet" type="text/css" href="testCSS/css/style2.css" />
-  <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
+<%@LANGUAGE="VBSCRIPT"%>
+<!--#include file="Connections/cnAutoCar.asp" -->
+<%
+Dim rcAllBank
+Dim rcAllBank_cmd
+Dim rcAllBank_numRows
+
+Set rcAllBank_cmd = Server.CreateObject ("ADODB.Command")
+rcAllBank_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcAllBank_cmd.CommandText = "SELECT * FROM dbo.BANK" 
+rcAllBank_cmd.Prepared = true
+
+Set rcAllBank = rcAllBank_cmd.Execute
+rcAllBank_numRows = 0
+%>
+<%
+Dim Repeat1__numRows
+Dim Repeat1__index
+
+Repeat1__numRows = -1
+Repeat1__index = 0
+rcAllBank_numRows = rcAllBank_numRows + Repeat1__numRows
+%>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:15 GMT -->
+<head>
+    <title>Auto Car - Bank Listing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/fonts/flaticon/font/flaticon.css">
+    <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
+
 </head>
 
+
 <body>
-    <header class="top-header hidden-xs">
+<!--header top -->
+<header class="top-header hidden-xs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
@@ -42,31 +72,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="logo">
+                    <a href="Home.html" class="logo">
                         <img src="images/logos/green-light-logo.png" alt="logo">
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-collapse collapse" id="app-navigation">
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#" tabindex="0" data-toggle="dropdown">
+                        <li>
+                            <a href="Home.html" >
                                 Home
                             </a>
                         </li>
-                        <li class="dropdown">
-                            <a tabindex="0" data-toggle="dropdown" >
-                                Car Listing<span class="caret"></span>
+                        <li>
+                            <a href="CarListing.asp" >
+                                Car Listing
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a tabindex="0">Services</a>
-                                </li>
-                                <li>
-                                    <a tabindex="1">Agent List</a>
-                                </li>
-                                <li><a href="#">About Us</a></li>
-                            </ul>
+                            
                         </li>
                         <li class="dropdown">
                             <a tabindex="0" data-toggle="dropdown" >
@@ -74,40 +96,23 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a tabindex="0">Services</a>
+                                    <a href="Compare.asp" tabindex="0">Compare</a>
                                 </li>
                                 <li>
-                                    <a tabindex="1">Agent List</a>
+                                    <a href="BankListing.asp" tabindex="1">Bank Listing</a>
                                 </li>
-                                <li><a href="#">About Us</a></li>
+                                <li>
+                                    <a href="CarmakerListing.asp" tabindex="1">Carmakers Listing</a>
+                                </li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a tabindex="0" data-toggle="dropdown">
-                                Blog<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a tabindex="0">Services</a>
-                                </li>
-                                <li>
-                                    <a tabindex="1">Agent List</a>
-                                </li>
-                                <li><a href="#">About Us</a></li>
-                            </ul>
-                        </li>
+                        
                         <li class="dropdown">
                             <a tabindex="0" data-toggle="dropdown" >
                                 Contact<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a tabindex="0">Services</a>
-                                </li>
-                                <li>
-                                    <a tabindex="1">Agent List</a>
-                                </li>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="About.html">About Us</a></li>
                             </ul>
                         </li>
                     </ul>                
@@ -115,141 +120,152 @@
             </nav>
         </div>
     </header>
-<!-- Main header end -->
-<!-- Main header end -->
-<!-- Banner start-->
-<div class="banner">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Wrapper for slides -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                  <img src="images/banner-slider-1.jpg" style="width:100%;"/>
-            </div>
-            <div class="item">
-                <img src="images/banner-slider-2.jpg" style="width:100%;"/>
-            </div>
-            <div class="item">
-                <img src="images/banner-slider-3.jpg" style="width:100%;"/>
-            </div>
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="slider-mover-left">
-                <i class="fa fa-angle-left"></i>
-            </span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="slider-mover-right">
-                <i class="fa fa-angle-right"></i>
-            </span>
-        </a>
-    </div>
-</div>
-<!-- Banner end-->
-<!-- Featured car start-->
-<div class="featured-car content-area clearfix">
-    <div class="container">
-        <div class="main-title">
-            <h1>Featured Car</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc..</p>
-        </div> 
-        <div class="row">
-        
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
-                <!-- Car box start-->
-                <div class="thumbnail car-box clearfix">
-                    <div class="car-box-thumbnail">
-                        <img src="picture/car-1.jpg" alt="car-1">
-                        
-
-                        <div class="listing-price">
-                            <span class="del"><del>$1250.00</del></span>
-                            <br/>
-                            <span>$1000.00</span>
-                        </div>
-
-                        <a href="#">
-                            <div class="carbox-overlap-wrapper">
-                                <h2>Lamborghini</h2>
-                                <h4>$54,000</h4>
-                            </div>
-                       	</a>
-                    </div>
-
-                    <!-- detail -->
-                    <div class="caption detail">
-                        <!-- Header -->
-                        <header class="clearfix">
-                            <h5 class="title">
-                                <a href="car-details.html">Lamborghini</a>
-                            </h5>
-                            <ul class="custom-list">
-                                <li>
-                                    <a href="#">New Car</a> /
-                                </li>
-                                <li>
-                                    <a href="#">Automatic</a> /
-                                </li>
-                                <li>
-                                    <a href="#">Sports</a>
-                                </li>
-                            </ul>
-                        </header>
-                        <!-- paragraph -->
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                        <!-- Facilities List -->
-                        <div>
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-gasoline-pump"></i>
-                                    <span>Gasoline</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-automatic-flash-symbol"></i>
-                                    <span>Automatic</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-road-with-broken-line"></i>
-                                    <span>12000</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-racing-flag"></i>
-                                    <span>Sports Car </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-transport"></i>
-                                    <span>5 Gears</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-time"></i>
-                                    <span>2017</span>
-                                </li>
-                            </ul>
-                        </div>
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-area">
+                        <h2>Bank Listing</h2>
+                        <ul class="breadcrumbs">
+                            <li><a href="Home.html">Home</a></li>
+                            <li class="active">Bank Listing</li>
+                        </ul>
                     </div>
                 </div>
-            </div><!-- Car box end-->  
+            </div>
         </div>
     </div>
 </div>
-<!--foel -->
+<!-- Sub banner end -->
 
+<!-- Car list start-->
+<div class="car-list content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12">
+                <!-- Block heading Start-->
+                <div class="option-bar block-heading">
+                    <div class="row">
+                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                           <h4>
+                                <span class="heading-icon">
+                                    <i class="fa fa-th-list"></i>
+                                </span>
+                                <span class="hidden-xs">Bank Listing</span>
+                         </h4>
+                      </div>                        
+                   </div>
+               </div>
+               <!-- Block heading end -->
+              <div class="clearfix"></div>
 
+                <!-- Car list start -->
+                <% 
+While ((Repeat1__numRows <> 0) AND (NOT rcAllBank.EOF)) 
+%>
+  <div class="car-list-box clearfix wow fadeInUp">
+    <div class=" row-table row-flush">
+      <div class="col-lg-4  col-md-5 col-sm-4 col-xs-12 car-pic">
+        <div class="car-box-thumbnail">
+          <img src="images/logobanks/<%=(rcAllBank.Fields.Item("IMAGEBANK").Value)%>" class="img-responsive">                              
+          </div>
+        </div>
+      <!-- Detail Body -->
+      <div class="col-lg-8 col-md-7 col-sm-8 col-xs-12 detail">
+        <!-- Header -->
+        <header>
+          <!-- Title -->
+          <h3 class="title">
+            <a href="BankDetails.asp?IdBank=<%=(rcAllBank.Fields.Item("IDBANK").Value)%>"><%=(rcAllBank.Fields.Item("NAMEBANK").Value)%></a>
+            </h3>
+          </header>
+        <div class="clearfix"></div>
+        <!-- paragraph -->
+        <p>
+          <%=(rcAllBank.Fields.Item("SUMMARY").Value)%> 
+          </p>
+        <!-- Facilities List -->
+        </div>
+      </div>
+  </div>
+  <% 
+  Repeat1__index=Repeat1__index+1
+  Repeat1__numRows=Repeat1__numRows-1
+  rcAllBank.MoveNext()
+Wend
+%>
+<!-- Car list end-->
 
-<!-- Featured car end-->
-    <footer class="clearfix">
+                <!-- Page navigation Start-->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+              </nav>
+                <!-- Page navigation End-->
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <!-- Sidebar start-->
+                <div class="sidebar">
+                    <aside class="sidebar-widget">
+                        <!-- Helping Start-->
+                        <div class="helping-Center">
+                            <h2 class="title">Helping Center</h2>
+                            <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros.</p>
+                            <ul class="contact-link">
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    Aenean vulputate porttitor
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <a href="tel:+55-417-634-7071">
+                                        +55 417 634 7071
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o"></i>
+                                    <a href="mailto:info@themevessel.com">
+                                        info@themevessel.com
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <!-- end-->
+                </div>
+                <!-- Sidebar end-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Car list end-->
+<!-- footer-->
+ <footer class="clearfix">
         <div class="container">
             <!-- Sub footer-->
             <div class="sub-footer">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="logo-2">
-                            <a href="index.html">
+                            <a href="Home.html">
                                 <img src="picture/footer-logo.png" alt="footer-logo">
                             </a>
                         </div>
@@ -294,10 +310,7 @@
         </div> 
         <a href="#" class="btn btn-submit">Read More</a>
     </div>
-<script src="./Auto Car - Car Dealer HTML Template_files/ie10-viewport-bug-workaround.js.tải xuống"></script>
 
-<!-- Custom javascript -->
-<script src="./Auto Car - Car Dealer HTML Template_files/app.js.tải xuống"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -308,7 +321,6 @@
     ga('send', 'pageview');
 	</script>
 	<!-- -->
-
                 <div class="row">
                 	<div class="footerinfo">
                     	<p class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12" style="text-align:center; font-size:20px;">
@@ -339,4 +351,10 @@
         </div>
     </footer>
 </body>
+
+<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:18 GMT -->
 </html>
+<%
+rcAllBank.Close()
+Set rcAllBank = Nothing
+%>
