@@ -24,7 +24,6 @@ rcMaker_numRows = rcMaker_numRows + Repeat1__numRows
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from storage.googleapis.com/themeforest-auto-car/car-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Apr 2018 13:40:15 GMT -->
 <head>
     <title>Auto Car - Carmaker Listing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,8 +47,8 @@ rcMaker_numRows = rcMaker_numRows + Repeat1__numRows
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                     <div class="list-inline">
-                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
-                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                        <a href="tel:0983 456 789"><i class="fa fa-phone"></i>Need Support? 0983 456 789</a>
+                        <a href="mailto:autoworld@gmail.com"><i class="fa fa-envelope"></i>autoworld@gmail.com</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
@@ -178,7 +177,7 @@ While ((Repeat1__numRows <> 0) AND (NOT rcMaker.EOF))
         <header>
           <!-- Title -->
           <h3 class="title">
-            <a href="#"><%=(rcMaker.Fields.Item("BRANDS").Value)%></a>
+            <a href="CarListing.asp?IdMake1=<%=(rcMaker.Fields.Item("IDMAKE").Value)%>"><%=(rcMaker.Fields.Item("BRANDS").Value)%></a>
             </h3>
           </header>
         <div class="clearfix"></div>
@@ -228,22 +227,22 @@ Wend
                         <!-- Helping Start-->
                         <div class="helping-Center">
                             <h2 class="title">Helping Center</h2>
-                            <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros.</p>
+                            <p>Please contact us if you have any questions.</p>
                             <ul class="contact-link">
                                 <li>
                                     <i class="fa fa-map-marker"></i>
-                                    Aenean vulputate porttitor
+                                    Address: 123 Ngô Thị Thu Minh St, Hồ Chí Minh, Việt Nam
                                 </li>
                                 <li>
                                     <i class="fa fa-phone"></i>
-                                    <a href="tel:+55-417-634-7071">
-                                        +55 417 634 7071
+                                    <a href="tel:0983 456 789">
+                                        0983 456 789
                                     </a>
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope-o"></i>
-                                    <a href="mailto:info@themevessel.com">
-                                        info@themevessel.com
+                                    <a href="mailto:autoworld@gmail.com">
+                                        autoworld@gmail.com
                                     </a>
                                 </li>
                             </ul>
@@ -338,7 +337,7 @@ Wend
                             <ul class="personal-info">
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-map-marker"></i>
-                                    Address: 20/F Green Road, Dhanmondi, Dhaka
+                                    Address: 123 Ngô Thị Thu Minh St, Hồ Chí Minh, Việt Nam
                                 </li>
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12"> <i class="fa fa-envelope"></i> Email:<a href="mailto:autoworld@gmail.com">autoworld@gmail.com</a> </li>
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">

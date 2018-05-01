@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/jquery.validate.js"></script>
   <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap--.css">
     <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
@@ -23,8 +24,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                     <div class="list-inline">
-                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
-                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                        <a href="tel:0983 456 789"><i class="fa fa-phone"></i>Need Support? 0983 456 789</a>
+                        <a href="mailto:autoworld@gmail.com"><i class="fa fa-envelope"></i>autoworld@gmail.com</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
@@ -134,7 +135,7 @@
                             <i class="fa fa-map-marker"></i>
                         </div>
                         <p>Office Address</p>
-                        <strong>123 Kathal St. Tampa City,</strong>
+                        <strong>123 Ngô Thị Thu Minh St. Hồ Chí Minh City,</strong>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3">
@@ -161,11 +162,11 @@
             </div>
             <!-- Contact form start -->
             <div class="contact-form">
-                <form id="contact_form" action="https://storage.googleapis.com/themeforest-auto-car/index.html" method="GET" enctype="multipart/form-data">
+                <form id="contact_form" action="#" method="GET" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group fullname">
-                                <input type="text" name="full-name" class="input-text" placeholder="Full Name">
+                                <input type="text" name="name" class="input-text" placeholder="Full Name">
                             </div>
                             <div class="form-group enter-email">
                                 <input type="email" name="email" class="input-text" placeholder="Enter email">
@@ -187,8 +188,61 @@
                                 <button type="submit" class="btn btn-submit">Send Message</button>
                             </div>
                         </div>
+                        <div class="col-sm-12 section">
+                        	<div class="map">
+                                <div id="map" class="contact-map"></div>
+                            </div>
+                        </div>
                     </div>
                 </form>
+                <script>
+					$(document).ready(function() {
+						$("#contact_form").validate({
+							rules: {
+								name: { 
+									required: true 
+								},
+								email: {
+									required: true,
+									email: true
+								},
+								subject: { 
+									required: true,
+								},
+								phone : { 
+									required: true, 
+									number : true, 
+									digits :true,  
+									maxlength: 20 
+								},
+								message: { 
+									required: true 
+								}
+							},
+							messages: {
+								name: {
+									required: "Please enter a name!"
+									},
+								email: {
+									required: "Please enter a email!",
+									email: "Wrong email format!"
+									},
+								subject: {
+									required: "Please enter a subject!",
+									},
+								phone: {
+									required: "Please enter a phone number!",
+									number : "Mandatory numeric entry!",
+									digits : "Phone number can not be negative!",
+									maxlength : "Phone number no more than 20 characters!"
+									},
+								message: { 
+									required: "Please enter a message!"
+								}
+							}
+						});
+					});
+				</script>
             </div>
             <!-- Contact form end -->
         </div>
@@ -196,18 +250,11 @@
 </div>
 <!-- Contact body end -->
 
-<!-- Google map start -->
-<div class="section">
-    <div class="map">
-        <div id="map" class="contact-map"></div>
-    </div>
-</div>
-<!-- Google map end -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
 <script>
     function LoadMap(propertes) {
-        var defaultLat = 40.7110411;
-        var defaultLng = -74.0110326;
+        var defaultLat = 10.797336;
+        var defaultLng = 106.6624841;
         var mapOptions = {
             center: new google.maps.LatLng(defaultLat, defaultLng),
             zoom: 15,
@@ -240,7 +287,7 @@
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
         var infoWindow = new google.maps.InfoWindow();
-        var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
+        var myLatlng = new google.maps.LatLng(10.797336, 106.6624841);
 
         var marker = new google.maps.Marker({
             position: myLatlng,
@@ -251,11 +298,11 @@
                 infoWindow.setContent("" +
                         "<div class='map-properties contact-map-content'>" +
                         "<div class='map-content'>" +
-                        "<p class='address'>20-21 Kathal St. Tampa City, FL</p>" +
+                        "<p class='address'>123 Phạm Văn Hai St. Hồ Chí Minh City, VietNam</p>" +
                         "<ul class='map-properties-list'> " +
-                        "<li><i class='fa fa-phone'></i>  +0477 8556 552</li> " +
-                        "<li><i class='fa fa-envelope'></i>  sales@realhouse.com</li> " +
-                        "<li><a href='index.html'><i class='fa fa-globe'></i>  http://www.example.com</li></a> " +
+                        "<li><i class='fa fa-phone'></i>  +983 456 789</li> " +
+                        "<li><i class='fa fa-envelope'></i>  autocar@gmail.com</li> " +
+                        "<li><a href='Home.html'><i class='fa fa-globe'></i>  http://www.AutoCar###.com</li></a> " +
                         "</ul>" +
                         "</div>" +
                         "</div>");
@@ -341,7 +388,7 @@
                             <ul class="personal-info">
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-map-marker"></i>
-                                    Address: 20/F Green Road, Dhanmondi, Dhaka
+                                    Address: 123 Ngô Thị Thu Minh St, Hồ Chí Minh, Việt Nam
                                 </li>
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-envelope"></i>
