@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <info>
 	<infoitem key="UD_rcCar" value="name:IDCAR;datatype:int,name:NOTE;datatype:varchar,name:PRICE;datatype:float,name:NAMECAR;datatype:varchar,name:FUELTYPE;datatype:varchar,name:STOCK;datatype:varchar,name:GASOLINE;datatype:varchar,name:ENGINE;datatype:varchar,name:TRANSMISSION;datatype:varchar,name:VIN;datatype:varchar,name:MILEAGE;datatype:varchar,name:IDMAKE;datatype:int,name:IMAGECAR;datatype:varchar,name:YEARMAKE;datatype:varchar" />
+	<infoitem key="UD_rcMap" value="name:IDMAKE;datatype:int,name:BRANDS;datatype:varchar,name:ADDRESSMAKE;datatype:varchar,name:PHONEMAKE;datatype:varchar,name:MAILMAKE;datatype:varchar,name:WEBMAKE;datatype:varchar,name:DEFAULTLAT;datatype:varchar,name:DEFAULTLNG;datatype:varchar,name:NOTE;datatype:varchar,name:IMAGEMAKE;datatype:varchar" />
 </info>

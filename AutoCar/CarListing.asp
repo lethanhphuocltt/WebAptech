@@ -104,8 +104,8 @@ rcSLMake_numRows = rcSLMake_numRows + Repeat1__numRows
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                     <div class="list-inline">
-                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
-                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                        <a href="tel:0983 456 789"><i class="fa fa-phone"></i>Need Support? 0983 456 789</a>
+                        <a href="mailto:autoworld@gmail.com"><i class="fa fa-envelope"></i>autoworld@gmail.com</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
@@ -213,7 +213,7 @@ rcSLMake_numRows = rcSLMake_numRows + Repeat1__numRows
                             </h4>
                         </div>
                         <div class="col-lg-6 col-md-7 col-sm-7 col-xs-10 cod-pad">
-                        <form method="get" action="danh_sach.asp">
+                        <form method="get" action="CarListing.asp">
                             <div class="sorting-options">
                               <select class="sorting" name="IdMake1">
                                 <%
@@ -453,7 +453,7 @@ Wend
                             <ul class="personal-info">
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-map-marker"></i>
-                                    Address: 20/F Green Road, Dhanmondi, Dhaka
+                                    Address: 123 Ngô Thị Thu Minh St, Hồ Chí Minh, Việt Nam
                                 </li>
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-envelope"></i>

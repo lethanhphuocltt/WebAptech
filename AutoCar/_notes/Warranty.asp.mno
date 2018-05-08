@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rcWarranty" value="name:ID;datatype:int,name:IDMAKE;datatype:int,name:TIMEWARRANTY;datatype:int" />
+	<infoitem key="UD_rcMake" value="name:IDMAKE;datatype:int,name:BRANDS;datatype:varchar,name:ADDRESSBRANDS;datatype:varchar,name:NOTE;datatype:varchar,name:IMAGEMAKE;datatype:varchar" />
+	<infoitem key="UD_rcDW" value="name:ID;datatype:int,name:IDWARRANTY;datatype:int,name:DETAIL;datatype:varchar" />
+	<infoitem key="UD_rcCW" value="name:ID;datatype:int,name:IDWARRANTY;datatype:int,name:CONDITION;datatype:varchar" />
+</info>

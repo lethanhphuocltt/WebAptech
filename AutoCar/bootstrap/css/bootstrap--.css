@@ -2952,6 +2952,12 @@ blockquote {
     border-bottom-left-radius: 5px;
     cursor: pointer;
 }
+.tl
+{
+    background-color:#CCCCCC;
+	border:1;
+	
+	}
 
 /** Option Panel **/
 

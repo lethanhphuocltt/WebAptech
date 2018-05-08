@@ -21,6 +21,27 @@ rcCar_cmd.Parameters.Append rcCar_cmd.CreateParameter("param1", 5, 1, -1, rcCar_
 Set rcCar = rcCar_cmd.Execute
 rcCar_numRows = 0
 %>
+<%
+Dim rcMap__MMColParam
+rcMap__MMColParam = "1"
+If (Request.QueryString("IdCar") <> "") Then 
+  rcMap__MMColParam = Request.QueryString("IdCar")
+End If
+%>
+<%
+Dim rcMap
+Dim rcMap_cmd
+Dim rcMap_numRows
+
+Set rcMap_cmd = Server.CreateObject ("ADODB.Command")
+rcMap_cmd.ActiveConnection = MM_cnAutoCar_STRING
+rcMap_cmd.CommandText = "SELECT m.* FROM dbo.CAR c, dbo.MAKE m WHERE c.IDMAKE = m.IDMAKE AND c.IDCAR = ?" 
+rcMap_cmd.Prepared = true
+rcMap_cmd.Parameters.Append rcMap_cmd.CreateParameter("param1", 5, 1, -1, rcMap__MMColParam) ' adDouble
+
+Set rcMap = rcMap_cmd.Execute
+rcMap_numRows = 0
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,8 +59,8 @@ rcCar_numRows = 0
   <link rel="stylesheet" type="text/css" href="bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <link href="bootstrap/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" id="style_sheet" href="bootstrap/css/colors/default.css">
-  <script src="bootstrap/js/jquery-2.2.0.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/jquery-2.2.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -48,8 +69,8 @@ rcCar_numRows = 0
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
                     <div class="list-inline">
-                        <a href="tel:01657556867"><i class="fa fa-phone"></i>Need Support? 098 xxxxxxx</a>
-                        <a href="lethanhphuocltt@gmail.com"><i class="fa fa-envelope"></i>xxx@gmail.com</a>
+                        <a href="tel:0983 456 789"><i class="fa fa-phone"></i>Need Support? 0983 456 789</a>
+                        <a href="mailto:autoworld@gmail.com"><i class="fa fa-envelope"></i>autoworld@gmail.com</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
@@ -61,7 +82,7 @@ rcCar_numRows = 0
                 </div>
             </div>
         </div>
-    </header>
+</header>
 <!-- Main header start -->
     <header class="main-header">
         <div class="container">
@@ -226,6 +247,7 @@ rcCar_numRows = 0
                         <li>
                         	<span>Mileage:</span><%=(rcCar.Fields.Item("MILEAGE").Value)%>
                         </li>
+                        
                                              
             		</ul>
                 </div>            		
@@ -238,13 +260,83 @@ rcCar_numRows = 0
                             <button type="submit" class="btn btn-submit btn-warning">Contact Us</button>
                         </div> 
                     </form>
-                    <form method="get" action="Compare.asp">
-                    	<input type="text" hidden="true" name="IdCar" value="<%=(rcCar.Fields.Item("IDCAR").Value)%>" />
+                    <form method="get" action="Warranty.asp">
+                    	<input type="text" hidden="true" name="IdMake" value="<%=(rcCar.Fields.Item("IDMAKE").Value)%>" />
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <button type="submit" class="btn btn-submit btn-warning">Partial Payment</button>
+                            <button type="submit" class="btn btn-submit btn-warning">Warranty</button>
                         </div> 
                     </form>
                 </div>              
+            </div>
+            <div class="car_details">
+            	<div class="row">
+                	<div id="map" class="contact-map"></div>
+                    
+               	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+				  <script>
+                        function LoadMap(propertes) {
+                            var defaultLat = <%=(rcMap.Fields.Item("DEFAULTLAT").Value)%>;
+                            var defaultLng = <%=(rcMap.Fields.Item("DEFAULTLNG").Value)%>;
+                            var mapOptions = {
+                                center: new google.maps.LatLng(defaultLat, defaultLng),
+                                zoom: 15,
+                                scrollwheel: false,
+                                styles: [
+                                    {
+                                        featureType: "administrative",
+                                        elementType: "labels",
+                                        stylers: [
+                                            {visibility: "off"}
+                                        ]
+                                    },
+                                    {
+                                        featureType: "water",
+                                        elementType: "labels",
+                                        stylers: [
+                                            {visibility: "off"}
+                                        ]
+                                    },
+                                    {
+                                        featureType: 'poi.business',
+                                        stylers: [{visibility: 'off'}]
+                                    },
+                                    {
+                                        featureType: 'transit',
+                                        elementType: 'labels.icon',
+                                        stylers: [{visibility: 'off'}]
+                                    },
+                                ]
+                            };
+                            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                            var infoWindow = new google.maps.InfoWindow();
+                            var myLatlng = new google.maps.LatLng(<%=(rcMap.Fields.Item("DEFAULTLAT").Value)%>, <%=(rcMap.Fields.Item("DEFAULTLNG").Value)%>);
+                    
+                            var marker = new google.maps.Marker({
+                                position: myLatlng,
+                                map: map
+                            });
+                            (function (marker) {
+                                google.maps.event.addListener(marker, "click", function (e) {
+                                    infoWindow.setContent("" +
+                                            "<div class='map-properties contact-map-content'>" +
+                                            "<div class='map-content'>" +
+                                            "<p class='address'><%=(rcMap.Fields.Item("ADDRESSMAKE").Value)%></p>" +
+                                            "<ul class='map-properties-list'> " +
+                                            "<li><i class='fa fa-phone'></i><%=(rcMap.Fields.Item("PHONEMAKE").Value)%></li> " +
+                                            "<li><i class='fa fa-envelope'></i><%=(rcMap.Fields.Item("MAILMAKE").Value)%></li> " +
+                                            "<li><a href='#'><i class='fa fa-globe'></i>  http://www.<%=(rcMap.Fields.Item("WEBMAKE").Value)%></li></a> " +
+                                            "</ul>" +
+                                            "</div>" +
+                                            "</div>");
+                                    infoWindow.open(map, marker);
+                                });
+                            })(marker);
+                        }
+                        LoadMap();
+                        
+                        
+                    </script>
+                </div>
             </div>
         </div>
     </div>
@@ -325,7 +417,7 @@ rcCar_numRows = 0
                             <ul class="personal-info">
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-map-marker"></i>
-                                    Address: 20/F Green Road, Dhanmondi, Dhaka
+                                    Address: 123 Ngô Thị Thu Minh St, Hồ Chí Minh, Việt Nam
                                 </li>
                                 <li class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                                     <i class="fa fa-envelope"></i>
@@ -350,5 +442,9 @@ rcCar_numRows = 0
 <%
 rcCar.Close()
 Set rcCar = Nothing
+%>
+<%
+rcMap.Close()
+Set rcMap = Nothing
 %>
 >

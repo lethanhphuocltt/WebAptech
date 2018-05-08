@@ -6,7 +6,12 @@ CREATE TABLE MAKE
 (
 	IDMAKE INT IDENTITY(1,1) PRIMARY KEY,
 	BRANDS NVARCHAR(30),
-	ADDRESSBRANDS NVARCHAR(100),
+	ADDRESSMAKE VARCHAR(100),
+	PHONEMAKE VARCHAR(20),
+	MAILMAKE VARCHAR(50),
+	WEBMAKE VARCHAR(100),
+	DEFAULTLAT VARCHAR(50),
+	DEFAULTLNG VARCHAR(50),
 	NOTE VARCHAR(600),
 	IMAGEMAKE VARCHAR(50)
 )
@@ -50,22 +55,92 @@ CREATE TABLE CONDITIONS
 	CONDITION VARCHAR(200)
 )
 
+CREATE TABLE WARRANTY
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IDMAKE INT FOREIGN KEY REFERENCES MAKE(IDMAKE),
+	TIMEWARRANTY INT
+)
+
+CREATE TABLE CONDITIONSWARRANTY
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IDWARRANTY INT FOREIGN KEY REFERENCES dbo.WARRANTY(ID),
+	CONDITION VARCHAR(500)
+)
+
+CREATE TABLE DETAILSWARRANTY
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IDWARRANTY INT FOREIGN KEY REFERENCES dbo.WARRANTY(ID),
+	DETAIL VARCHAR(500)
+)
+
 
 --
 
 
 --
 
---
-INSERT INTO dbo.MAKE VALUES (N'Acura',NULL,'A premium brand of Honda, Japan. Originally introduced in 1986 in the North American and Hong Kong markets, the brand mainly produces luxury cars and sports cars. In 2004, the brand was introduced and sold in Mexico, in 2006 in China and Russia, and in the coming years Honda plans to introduce it to the Japanese market.','Acura.jpg')
-INSERT INTO dbo.MAKE VALUES (N'BMW',NULL,'BMW (Bayerische Motoren Werke AG) is an important German car and motorcycle manufacturer. BMW is world-famous brand for luxury, sporty design and high performance.','BMW.jpg')
-INSERT INTO dbo.MAKE VALUES (N'Chevrolet',NULL,'Chevrolet, commonly known as Chevy, is a full-fledged Chevrolet Division of the General Motors Company, a US automotive division of General Motors (GM). Louis Chevrolet and the founder of General Motors were disgraced. William C. Durant founded the company on November 3, 1911 as the Chevrolet Motor Car Company.','Chevrolet.jpg')
-INSERT INTO dbo.MAKE VALUES (N'Ford',NULL,'The company was founded by Henry Ford and its shareholders on June 16, 1903. In addition to Lincoln is subsidiaries, Ford also owns a minority stake in Mazda Japan and Aston Martin of Britain. Former Ford UK companies such as Jaguar and Land Rover were sold to India is Tata in March 2008.','Ford.jpg')
-INSERT INTO dbo.MAKE VALUES (N'Honda',NULL,'Honda is the world is largest engine manufacturer based in Tokyo, Japan. with more than 14 million units annually. Since 2004, the company has started to produce clean and quiet diesel engines that do not need filters to meet pollution standards. However, it can be said that the foundation that makes up this company is work is from making the motorbike.','Honda.jpg')
-INSERT INTO dbo.MAKE VALUES (N'Jeep',NULL,'An American automobile brand is a trademark of Chrysler Group LLC in a global alliance with Fiat. In 1987, the CEO of Chrysler Corporation acquired the Jeep brand, along with the remaining assets of American Motors.','Jeep.jpg')
---
+INSERT INTO dbo.MAKE VALUES  ( N'Acura','Ward 15, Go Vap District, Ho Chi Minh City','098 555 777','acuracar@gmail.com','acuracar.com','10.827842' ,'106.642045' ,'A premium brand of Honda, Japan. Originally introduced in 1986 in the North American and Hong Kong markets, the brand mainly produces luxury cars and sports cars. In 2004, the brand was introduced and sold in Mexico, in 2006 in China and Russia, and in the coming years Honda plans to introduce it to the Japanese market.' ,'Acura.jpg')
+INSERT INTO dbo.MAKE VALUES  ( N'BMW','45 Truong Son Street, Ward 2, Tan Binh District, Ho Chi Minh City','098 666 888','bmwcar@gmail.com','bmwcar.com','10.813685','106.663277' ,'BMW (Bayerische Motoren Werke AG) is an important German car and motorcycle manufacturer. BMW is world-famous brand for luxury, sporty design and high performance.' ,'BMW.jpg')
+INSERT INTO dbo.MAKE VALUES  ( N'Chevrolet','170/5 Hoang Van Thu Street, Ward 9, Phu Nhuan District, Ho Chi Minh City','098 444 777','chevroletcar@gmail.com','chevroletcar.com','10.799837', '106.675442' ,'Chevrolet, commonly known as Chevy, is a full-fledged Chevrolet Division of the General Motors Company, a US automotive division of General Motors (GM). Louis Chevrolet and the founder of General Motors were disgraced. William C. Durant founded the company on November 3, 1911 as the Chevrolet Motor Car Company.' ,'Chevrolet.jpg')
+INSERT INTO dbo.MAKE VALUES  ( N'Ford','7/2 Ho Bieu Chanh Street, Ward 12, Phu Nhuan District, Ho Chi Minh City, Ward 12','098 999 111','fordcar@gmail.com','fordcar.com','10.793998', '106.676910' ,'Chevrolet, commonly known as Chevy, is a full-fledged Chevrolet Division of the General Motors Company, a US automotive division of General Motors (GM). Louis Chevrolet and the founder of General Motors were disgraced. William C. Durant founded the company on November 3, 1911 as the Chevrolet Motor Car Company.' ,'Ford.jpg')
+INSERT INTO dbo.MAKE VALUES  ( N'Honda','182 / 4A Le Van Sy Street, Ward 10, Phu Nhuan District, Ho Chi Minh City, Vietnam','098 444 333','hondacar@gmail.com','hondacar.com','10.793078', '106.670725' ,'Honda is the world is largest engine manufacturer based in Tokyo, Japan. with more than 14 million units annually. Since 2004, the company has started to produce clean and quiet diesel engines that do not need filters to meet pollution standards. However, it can be said that the foundation that makes up this company is work is from making the motorbike.' ,'Honda.jpg')
+INSERT INTO dbo.MAKE VALUES  ( N'Jeep','Lane 766/16/15, Ward 5, Tan Binh District, Ho Chi Minh City, Vietnam','098 555 222','jeepcar@gmail.com','jeepcar.com','10.788832', '106.663366' ,'An American automobile brand is a trademark of Chrysler Group LLC in a global alliance with Fiat. In 1987, the CEO of Chrysler Corporation acquired the Jeep brand, along with the remaining assets of American Motors.' ,'Jeep.jpg')
 
 --
+INSERT INTO dbo.WARRANTY VALUES  (1,24)
+INSERT INTO dbo.WARRANTY VALUES  (2,56)
+INSERT INTO dbo.WARRANTY VALUES  (3,123)
+INSERT INTO dbo.WARRANTY VALUES  (4,78)
+INSERT INTO dbo.WARRANTY VALUES  (5,24)
+INSERT INTO dbo.WARRANTY VALUES  (6,24)
+
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (1,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (1,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (1,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (2,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (2,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (2,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (3,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (3,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (3,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (4,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (4,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (4,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (5,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (5,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (5,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (6,'The  Vehicle  must  be  submitted  to  a  Ford  Authorised  Repairer  within  seven  days  of  any failure becoming apparent.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (6,'Before any work can be carried out under your Warranty, you must produce your Ford Service  History  Log  duly  stamped  and  showing  scheduled  servicing.  Invoices  and/or  receipts  in  respect  of  any  services  may  be  requested  and  all  parts  replaced  will  become the property of the Company.')
+INSERT INTO dbo.CONDITIONSWARRANTY VALUES  (6,' The benefi ts of this Warranty are Vehicle based and there is no facility for the cover to be transferred to another vehicle.')
+
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (1,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (1,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (2,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (2,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (3,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (3,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (4,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (4,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (5,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (5,'Lubricant free')
+
+INSERT INTO dbo.DETAILSWARRANTY VALUES (6,'Warranty whole car parts')
+INSERT INTO dbo.DETAILSWARRANTY VALUES (6,'Lubricant free')
+
 INSERT INTO dbo.CAR
 VALUES  ( 
           '' , -- NOTE - varchar(300)
@@ -415,3 +490,7 @@ INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'Have monthly income gr
 INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'Total assets over 8000000$')
 INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'Full identity papers')
 INSERT INTO dbo.CONDITIONS(IDBANK, CONDITION )VALUES  (4,'No previous loan')
+
+SELECT c.* FROM dbo.WARRANTY w, dbo.CONDITIONSWARRANTY c, dbo.MAKE m WHERE c.IDWARRANTY = w.ID AND m.IDMAKE= w.IDMAKE AND m.IDMAKE='1'
+SELECT DISTINCT m.* FROM dbo.CAR c, dbo.MAKE m WHERE c.IDMAKE = m.IDMAKE AND c.IDMAKE='1'
+SELECT d.* FROM dbo.MAKE m , dbo.WARRANTY w , dbo.DETAILSWARRANTY d  WHERE m.IDMAKE = w.IDMAKE AND w.ID=d.IDWARRANTY AND w.IDMAKE ='1'
