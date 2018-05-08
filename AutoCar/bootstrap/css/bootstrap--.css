@@ -2956,6 +2956,9 @@ blockquote {
 /** Option Panel **/
 
 /** Order Car **/
+.form-detail {
+	background-color:#fff;	
+}
 .order_car {
     padding: 20px;
     background-color: #fff;
@@ -2968,7 +2971,7 @@ blockquote {
 }
 .order_car_btn {
 	text-align:center;
-	padding-top:20px;
+	padding: 20px 0 30px 0;
 }
 
 
