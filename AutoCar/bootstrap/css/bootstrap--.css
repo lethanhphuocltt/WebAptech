@@ -2955,6 +2955,22 @@ blockquote {
 
 /** Option Panel **/
 
+/** Order Car **/
+.order_car {
+    padding: 20px;
+    background-color: #fff;
+}
+.order_car_money  {
+	text-align:center;
+}
+.form-detail {
+	margin-top:50px;	
+}
+.order_car_btn {
+	text-align:center;
+	padding-top:20px;
+}
+
 
 
 
